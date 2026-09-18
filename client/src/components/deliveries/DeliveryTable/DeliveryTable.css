@@ -1,0 +1,70 @@
+.delivery-table-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.05);
+}
+
+.table-header{
+    padding:24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ececec;
+}
+
+.table-header h2{
+    margin:0;
+    color:#2F3437;
+    font-size:22px;
+}
+
+.table-header span{
+    background:#F6EAD4;
+    color:#818263;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.table-responsive{
+    overflow-x:auto;
+}
+
+.delivery-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.delivery-table th{
+    background:#FFFAF2;
+    color:#555;
+    padding:16px;
+    text-align:left;
+    font-size:14px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.delivery-table td{
+    padding:18px 16px;
+    border-top:1px solid #f1f1f1;
+    vertical-align:middle;
+}
+
+.delivery-table tbody tr{
+    transition:.25s;
+}
+
+.delivery-table tbody tr:hover{
+    background:#fcfaf5;
+}
+
+@media(max-width:992px){
+
+.delivery-table{
+min-width:1200px;
+}
+
+}

@@ -1,0 +1,40 @@
+.driver-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.driver-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.driver-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #f6ead4;
+  min-width: 0;
+}
+
+/* ==========================
+   Responsive (768px and below)
+========================== */
+@media (max-width: 768px) {
+  .driver-content {
+    padding: 16px;
+  }
+}
+
+/* ==========================
+   Mobile (576px and below)
+========================== */
+@media (max-width: 576px) {
+  .driver-content {
+    padding: 12px;
+  }
+}

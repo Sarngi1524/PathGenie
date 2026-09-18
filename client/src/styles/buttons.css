@@ -1,0 +1,23 @@
+.btn{
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    background:var(--primary);
+
+    color:white;
+
+    transition:var(--transition);
+
+    font-weight:700;
+
+}
+
+.btn:hover{
+
+    background:var(--secondary);
+
+    transform:translateY(-3px);
+
+}

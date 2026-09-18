@@ -1,0 +1,76 @@
+.driver-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.driver-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.driver-avatar.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #F6EAD4;
+  color: #818263;
+
+  font-size: 34px;
+}
+
+.driver-info h4 {
+  margin: 0;
+  color: #333;
+  font-size: 15px;
+}
+
+.driver-info span {
+  color: #888;
+  font-size: 12px;
+}
+
+.driver-status {
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.driver-status.active {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.driver-status.inactive {
+  background: #FDECEA;
+  color: #D32F2F;
+}
+
+.driver-action-btn {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: .3s;
+}
+
+.driver-action-btn.view {
+  background: #818263;
+  color: white;
+}
+
+.driver-action-btn:hover {
+  transform: scale(1.08);
+}

@@ -1,0 +1,123 @@
+/* ==========================
+   Drivers Filters
+========================== */
+
+.drivers-filters {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,.05);
+}
+
+/* Search */
+
+.driver-search {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+}
+
+.driver-search input {
+  width: 100%;
+  padding: 13px 16px 13px 45px;
+
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  transition: .3s;
+}
+
+.driver-search input:focus {
+  outline: none;
+  border-color: #818263;
+  box-shadow: 0 0 0 4px rgba(129,130,99,.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #818263;
+}
+
+/* Select */
+
+.drivers-filters select {
+  min-width: 170px;
+
+  padding: 13px 15px;
+
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+.drivers-filters select:focus {
+  outline: none;
+  border-color: #818263;
+}
+
+/* Button */
+
+.clear-driver-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 13px 20px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #DDBAAE;
+  color: #333;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.clear-driver-filter:hover {
+  background: #cda092;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.drivers-filters{
+flex-direction:column;
+align-items:stretch;
+}
+
+.driver-search{
+width:100%;
+}
+
+.drivers-filters select{
+width:100%;
+}
+
+.clear-driver-filter{
+width:100%;
+justify-content:center;
+}
+
+}

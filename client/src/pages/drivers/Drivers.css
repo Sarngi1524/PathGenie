@@ -1,0 +1,14 @@
+.drivers-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  min-height: 100vh;
+  background: #fffaf2;
+}
+
+@media (max-width:768px) {
+  .drivers-page {
+    padding: 16px;
+  }
+}

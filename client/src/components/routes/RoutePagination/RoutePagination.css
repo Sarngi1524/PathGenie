@@ -1,0 +1,32 @@
+.route-pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    margin-top:20px;
+}
+
+.route-pagination button{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:12px;
+    background:#818263;
+    color:#fff;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.route-pagination button:hover:not(:disabled){
+    background:#6D6F58;
+}
+
+.route-pagination button:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+}
+
+.route-pagination span{
+    font-weight:600;
+    color:#555;
+}

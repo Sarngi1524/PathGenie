@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
+
+/* =========================
+   Left Side
+========================= */
+
+.login-left-content {
+  width: 100%;
+  max-width: 500px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login-left-content h2 {
+  margin-top: 30px;
+  margin-bottom: 18px;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+.login-left-content p {
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  line-height: 1.8;
+
+  font-size: 17px;
+
+  max-width: 420px;
+}
+
+.login-image {
+  width: 100%;
+  max-width: 470px;
+
+  margin-top: 40px;
+
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+/* =========================
+   Right Side
+========================= */
+
+.login-form {
+  width: 100%;
+  max-width: 430px;
+}
+
+.login-form h1 {
+  font-family: "Outfit", sans-serif;
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  color: #333;
+
+  margin-bottom: 10px;
+}
+
+.login-form p {
+  color: #7b7b7b;
+
+  font-size: 16px;
+
+  margin-bottom: 35px;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   Form
+========================= */
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* =========================
+   Remember + Forgot
+========================= */
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 14px;
+
+  color: #666;
+
+  cursor: pointer;
+}
+
+.remember-me input {
+  accent-color: #818263;
+
+  width: 16px;
+  height: 16px;
+}
+
+.login-options a {
+  text-decoration: none;
+
+  color: #818263;
+
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+.login-options a:hover {
+  color: #62634b;
+}
+
+/* =========================
+   Register Link
+========================= */
+
+.register-link {
+  text-align: center;
+
+  margin-top: 24px;
+  padding-top: 8px;
+
+  font-size: 15px;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-link a {
+  color: #818263;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: .3s;
+}
+
+.register-link a:hover {
+  color: #62634b;
+}
+
+/* =========================
+   Animation
+========================= */
+
+@keyframes floatImage {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media(max-width:992px){
+
+.login-form{
+
+max-width:100%;
+
+}
+
+.login-form h1{
+
+font-size:34px;
+
+text-align:center;
+
+}
+
+.login-form p{
+
+text-align:center;
+
+}
+
+.login-options{
+
+flex-direction:column;
+
+gap:15px;
+
+align-items:flex-start;
+
+}
+
+.register-link{
+
+margin-top:20px;
+
+}
+
+}
+
+@media (max-width: 576px) {
+  .login-form h1 {
+    font-size: 28px;
+  }
+
+  .login-form p {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .login-options {
+    gap: 12px;
+  }
+
+  .register-link {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+}

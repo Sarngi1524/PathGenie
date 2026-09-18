@@ -1,0 +1,11 @@
+.card{
+
+    background:var(--white);
+
+    border-radius:30px;
+
+    box-shadow:var(--shadow-md);
+
+    padding:25px;
+
+}

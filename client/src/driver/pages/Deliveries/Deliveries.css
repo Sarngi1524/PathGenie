@@ -1,0 +1,155 @@
+.deliveries-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.deliveries-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.deliveries-header h2 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  min-width: 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: #818263;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+table {
+  width: 100%;
+  background: transparent;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+@media (max-width: 768px) {
+  .deliveries-header {
+    align-items: stretch;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .filters input,
+  .filters select {
+    flex: 1 1 180px;
+    width: 100%;
+  }
+
+  table {
+    min-width: 620px;
+  }
+}
+
+@media (max-width: 576px) {
+  .deliveries-header h2 {
+    font-size: 24px;
+  }
+
+  .filters {
+    gap: 10px;
+  }
+
+  .filters input,
+  .filters select {
+    flex: 1 1 100%;
+  }
+}
+
+th {
+  background: #f6ead4;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: top;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background 0.25s ease;
+}
+
+tbody tr:hover {
+  background: rgba(129, 130, 99, 0.06);
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 13px;
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.status.assigned{
+    background:#dceeff;
+    color:#23456b;
+}
+
+.status.pickedup{
+    background:#fff4d6;
+    color:#8b6b13;
+}
+
+.status.intransit{
+    background:#e8e7ff;
+    color:#5045a7;
+}
+
+.status.delivered{
+    background:#dff5e4;
+    color:#1f6f3f;
+}
+
+.status.cancelled{
+    background:#ffe1e1;
+    color:#a13a3a;
+}
+
+.status.failed{
+    background:#f7d7d7;
+    color:#8b3535;
+}

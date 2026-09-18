@@ -1,0 +1,75 @@
+.dashboard-layout {
+  display: flex;
+  background: #F6EAD4;
+  min-height: 100vh;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 28px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-content {
+  margin-top: 20px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Scrollbar styling */
+.dashboard-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dashboard-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb {
+  background: #C2C395;
+  border-radius: 10px;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb:hover {
+  background: #818263;
+}
+
+/* ==========================
+   Tablet (768px and below)
+========================== */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .dashboard-main {
+    padding: 16px;
+  }
+
+  .dashboard-content {
+    margin-top: 16px;
+    padding-right: 6px;
+  }
+}
+
+/* ==========================
+   Mobile (576px and below)
+========================== */
+@media (max-width: 576px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .dashboard-main {
+    padding: 12px;
+    padding-bottom: 100px;
+  }
+
+  .dashboard-content {
+    margin-top: 12px;
+    padding-right: 4px;
+  }
+}

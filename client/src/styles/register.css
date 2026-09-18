@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
+
+/* ===========================
+   Left Section
+=========================== */
+
+.register-left-content{
+    width:100%;
+    max-width:520px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+.register-left-content h2{
+
+    margin-top:30px;
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:48px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    color:white;
+}
+
+.register-left-content p{
+
+    margin-top:18px;
+
+    max-width:440px;
+
+    font-family:"Plus Jakarta Sans",sans-serif;
+
+    font-size:18px;
+
+    line-height:1;
+
+    color:rgba(255,255,255,.9);
+}
+
+.register-image{
+
+    width:100%;
+
+    max-width:470px;
+
+    margin-top:35px;
+
+    animation:floatRegister 4s ease-in-out infinite;
+}
+
+/* ===========================
+   Right Section
+=========================== */
+
+.register-form{
+
+    width:100%;
+
+    max-width:500px;
+}
+
+.register-form h1{
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    color:#333;
+
+    margin-bottom:5px;
+}
+
+.register-form>p{
+
+    color:#777;
+
+    font-size:16px;
+
+    margin-bottom:18px;
+    line-height:1.5;
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.register-form form{
+
+    display:flex;
+
+    flex-direction:column;
+    gap:12px;
+}
+
+/* ===========================
+   Two Column Grid
+=========================== */
+
+.register-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:5px;
+}
+
+/* ===========================
+   Button
+=========================== */
+
+.register-form button{
+
+    margin-top:10px;
+
+    width:100%;
+}
+
+/* ===========================
+   Login Link
+=========================== */
+
+.login-link{
+
+    margin-top:24px;
+    padding-top:8px;
+    text-align:center;
+    color:#666;
+    font-size:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-link a{
+
+    color:#818263;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.login-link a:hover{
+
+    color:#66684b;
+}
+
+/* ===========================
+   Floating Animation
+=========================== */
+
+@keyframes floatRegister{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+.register-form{
+
+max-width:100%;
+
+}
+
+.register-left-content h2{
+
+font-size:38px;
+
+}
+
+.register-form h1{
+
+font-size:36px;
+
+text-align:center;
+
+}
+
+.register-form>p{
+
+text-align:center;
+
+}
+
+.register-grid{
+
+grid-template-columns:1fr;
+
+gap:0;
+
+}
+
+.register-image{
+
+max-width:340px;
+
+}
+
+.login-link{
+
+margin-top:20px;
+
+}
+
+}
+
+@media (max-width: 576px) {
+  .register-form h1 {
+    font-size: 28px;
+  }
+
+  .register-form > p {
+    font-size: 14px;
+  }
+
+  .login-link {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+}

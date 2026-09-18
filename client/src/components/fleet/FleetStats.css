@@ -1,0 +1,119 @@
+/* ==========================
+   Fleet Statistics
+========================== */
+
+.fleet-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ==========================
+   Card
+========================== */
+
+.fleet-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  background: #ffffff;
+
+  padding: 22px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+  transition: all 0.3s ease;
+
+  cursor: default;
+}
+
+.fleet-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================
+   Icon
+========================== */
+
+.fleet-stat-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 16px;
+
+  font-size: 24px;
+
+  color: white;
+}
+
+/* Theme Colors */
+
+.total .fleet-stat-icon {
+  background: #818263;
+}
+
+.available .fleet-stat-icon {
+  background: #7cb342;
+}
+
+.trip .fleet-stat-icon {
+  background: #42a5f5;
+}
+
+.maintenance .fleet-stat-icon {
+  background: #ef6c00;
+}
+
+/* ==========================
+   Text
+========================== */
+
+.fleet-stat-info h3 {
+  margin: 0;
+  font-size: 30px;
+  color: #333;
+}
+
+.fleet-stat-info p {
+  margin-top: 6px;
+  color: #777;
+  font-size: 15px;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 1200px) {
+  .fleet-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .fleet-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .fleet-stat-card {
+    padding: 18px;
+  }
+
+  .fleet-stat-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+  }
+
+  .fleet-stat-info h3 {
+    font-size: 26px;
+  }
+}

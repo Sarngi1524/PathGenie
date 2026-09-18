@@ -1,0 +1,22 @@
+.empty-notifications {
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 55px;
+  color: #c2c395;
+  margin-bottom: 15px;
+}
+
+.empty-notifications h3 {
+  margin: 0;
+  color: #444;
+  font-size: 18px;
+}
+
+.empty-notifications p {
+  margin-top: 8px;
+  color: #777;
+  font-size: 14px;
+}

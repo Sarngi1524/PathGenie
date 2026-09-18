@@ -1,0 +1,27 @@
+.deliveries-page{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    padding:24px;
+    background:
+        radial-gradient(circle at top right, rgba(129, 130, 99, 0.12), transparent 32%),
+        linear-gradient(180deg, #fffdf8 0%, #FFFAF2 100%);
+    min-height:100vh;
+    animation:fadeIn .4s ease;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}

@@ -1,0 +1,215 @@
+.welcome-banner {
+  background: linear-gradient(
+    135deg,
+    #818263 0%,
+    #8B8C67 50%,
+    #A3A57D 100%
+  );
+  color: white;
+  border-radius: 28px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-banner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.welcome-text {
+  max-width: 550px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-text h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.welcome-text h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.welcome-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0 0 24px 0;
+  opacity: 0.95;
+}
+
+.welcome-text button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: white;
+  color: #818263;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.welcome-text button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-text button:active {
+  transform: translateY(0);
+}
+
+.welcome-image {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+}
+
+/* ==========================
+   Tablet (1000px and below)
+========================== */
+@media (max-width: 1000px) {
+  .welcome-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px;
+    gap: 30px;
+  }
+
+  .welcome-text {
+    max-width: 100%;
+  }
+
+  .welcome-text h1 {
+    font-size: 32px;
+  }
+
+  .welcome-text p {
+    font-size: 14px;
+  }
+
+  .welcome-image img {
+    max-width: 300px;
+  }
+}
+
+/* ==========================
+   Tablets (768px and below)
+========================== */
+@media (max-width: 768px) {
+  .welcome-banner {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .welcome-text h1 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .welcome-text p {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .welcome-text button {
+    padding: 10px 24px;
+    font-size: 13px;
+  }
+
+  .welcome-image img {
+    max-width: 250px;
+  }
+}
+
+/* ==========================
+   Mobile (576px and below)
+========================== */
+@media (max-width: 576px) {
+  .welcome-banner {
+    padding: 20px;
+    border-radius: 20px;
+    gap: 16px;
+  }
+
+  .welcome-text h2 {
+    font-size: 12px;
+  }
+
+  .welcome-text h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .welcome-text p {
+    font-size: 12px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+
+  .welcome-text button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .welcome-image img {
+    max-width: 200px;
+  }
+}
+
+/* ==========================
+   Extra Small (480px and below)
+========================== */
+@media (max-width: 480px) {
+  .welcome-banner {
+    padding: 16px;
+  }
+
+  .welcome-text h1 {
+    font-size: 20px;
+  }
+
+  .welcome-text p {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .welcome-image img {
+    max-width: 150px;
+  }
+}

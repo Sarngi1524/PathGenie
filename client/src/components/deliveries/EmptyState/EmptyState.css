@@ -1,0 +1,75 @@
+.empty-state{
+    background:#ffffff;
+    border-radius:24px;
+    padding:70px 30px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.05);
+    animation:fadeUp .5s ease;
+}
+
+.empty-icon{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#F6EAD4;
+    color:#818263;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.empty-state h2{
+    color:#2F3437;
+    margin-bottom:15px;
+    font-size:30px;
+    font-weight:700;
+}
+
+.empty-state p{
+    max-width:500px;
+    color:#777;
+    line-height:1.8;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+.empty-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:none;
+    cursor:pointer;
+    background:#818263;
+    color:white;
+    padding:15px 28px;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.empty-btn:hover{
+    background:#6d6e55;
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(129,130,99,.25);
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}

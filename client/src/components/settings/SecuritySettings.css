@@ -1,0 +1,75 @@
+.security-grid{
+display:grid;
+gap:20px;
+}
+
+.password-group{
+display:flex;
+flex-direction:column;
+}
+
+.password-group label{
+margin-bottom:8px;
+font-weight:600;
+color:#555;
+}
+
+.password-box{
+display:flex;
+align-items:center;
+background:#F6EAD4;
+border-radius:14px;
+padding:0 15px;
+height:55px;
+gap:12px;
+transition:.3s;
+}
+
+.password-box:focus-within{
+border:2px solid #C2C395;
+}
+
+.password-box svg{
+color:#818263;
+font-size:17px;
+}
+
+.password-box input{
+flex:1;
+border:none;
+outline:none;
+background:none;
+font-size:15px;
+}
+
+.eye-btn{
+background:none;
+border:none;
+cursor:pointer;
+color:#818263;
+font-size:17px;
+display:flex;
+align-items:center;
+}
+
+.password-btn{
+margin-top:25px;
+padding:14px 28px;
+background:#818263;
+border:none;
+border-radius:14px;
+color:white;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.password-btn:hover{
+background:#6f7055;
+}
+
+.password-btn:disabled{
+opacity:.6;
+cursor:not-allowed;
+}

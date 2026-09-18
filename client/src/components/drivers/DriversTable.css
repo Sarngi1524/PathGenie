@@ -1,0 +1,39 @@
+.drivers-table-container {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow-x: auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.drivers-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.drivers-table thead {
+  background: #F6EAD4;
+}
+
+.drivers-table th {
+  padding: 18px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 700;
+  color: #555;
+  white-space: nowrap;
+}
+
+.drivers-table td {
+  padding: 18px;
+  border-top: 1px solid #f2f2f2;
+  vertical-align: middle;
+}
+
+.drivers-table tbody tr {
+  transition: 0.25s;
+}
+
+.drivers-table tbody tr:hover {
+  background: #FFFAF2;
+}

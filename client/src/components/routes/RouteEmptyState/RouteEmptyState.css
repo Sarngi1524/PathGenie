@@ -1,0 +1,23 @@
+.route-empty{
+    background:#fff;
+    border-radius:18px;
+    padding:70px 30px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+.route-empty svg{
+    font-size:64px;
+    color:#818263;
+    margin-bottom:20px;
+}
+
+.route-empty h2{
+    margin:0;
+    color:#2F3437;
+}
+
+.route-empty p{
+    margin-top:10px;
+    color:#777;
+}

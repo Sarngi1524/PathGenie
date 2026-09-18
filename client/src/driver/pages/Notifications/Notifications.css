@@ -1,0 +1,131 @@
+.notifications-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.notification-header h2 {
+  margin: 0 0 6px;
+}
+
+.notification-header p {
+  margin: 0;
+  color: #666;
+}
+
+.mark-all-btn {
+  padding: 10px 18px;
+  border: none;
+  background: #818263;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.notification-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #ececec;
+  transition: 0.3s;
+  flex-wrap: wrap;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+}
+
+.notification-card.unread {
+  border-left: 5px solid #818263;
+}
+
+.notification-card.read {
+  opacity: 0.75;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.notification-content h3 {
+  margin: 0;
+}
+
+.notification-content p {
+  color: #666;
+  margin: 0;
+}
+
+.notification-content small {
+  color: #888;
+}
+
+.delivery-tag {
+  background: #f6ead4;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.read-btn {
+  border: none;
+  background: #c2c395;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.empty-state {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .notification-card {
+    padding: 18px;
+  }
+
+  .mark-all-btn,
+  .read-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .notifications-page {
+    gap: 16px;
+  }
+
+  .notification-header {
+    align-items: stretch;
+  }
+
+  .notification-card {
+    align-items: flex-start;
+  }
+
+  .notification-content p {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
+
+/* ==========================
+   Full Page
+========================== */
+
+.auth-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+
+  background: linear-gradient(
+    135deg,
+    #fffaf2 0%,
+    #f6ead4 40%,
+    #efd7cf 100%
+  );
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Decorative circles */
+
+.auth-page::before {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  background: rgba(194, 195, 149, 0.25);
+
+  border-radius: 50%;
+
+  top: -180px;
+  left: -120px;
+}
+
+.auth-page::after {
+  content: "";
+
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  background: rgba(221, 186, 174, 0.25);
+
+  border-radius: 50%;
+
+  right: -100px;
+  bottom: -120px;
+}
+
+/* ==========================
+   Main Card
+========================== */
+
+.auth-container {
+  width: min(1180px, 100%);
+  min-height: 720px;
+  height: auto;
+
+  display: grid;
+  grid-template-columns: 48% 52%;
+
+  background: white;
+
+  border-radius: 40px;
+
+  overflow: hidden;
+
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================
+   Left Section
+========================== */
+
+.auth-left {
+  padding: 70px 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #7b7d5a, #8b8c67);
+  min-height: 100%;
+}
+
+/* ==========================
+   Right Section
+========================== */
+
+.auth-right {
+  background: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 60px;
+  min-height: 100%;
+}
+.login-left-content,
+.register-left-content{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+height:100%;
+
+text-align:center;
+
+}
+/* ==========================
+   Background Decorations
+========================== */
+
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(20px);
+  z-index: 0;
+}
+
+.circle-1 {
+  width: 320px;
+  height: 320px;
+  background: rgba(194, 195, 149, 0.35);
+  top: -120px;
+  left: -100px;
+}
+
+.circle-2 {
+  width: 240px;
+  height: 240px;
+  background: rgba(221, 186, 174, 0.35);
+  right: -70px;
+  top: 80px;
+}
+
+.circle-3 {
+  width: 280px;
+  height: 280px;
+  background: rgba(239, 215, 207, 0.45);
+  bottom: -120px;
+  left: 45%;
+}
+
+/* ==========================
+   Form Card
+========================== */
+
+.auth-form-card {
+  width: 100%;
+  max-width: 470px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================
+   Badge
+========================== */
+
+.auth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  margin-bottom: 20px;
+  align-self: flex-start;
+
+  background: rgba(129, 130, 99, 0.1);
+
+  border: 1px solid rgba(129, 130, 99, 0.2);
+
+  color: #818263;
+
+  border-radius: 30px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ==========================
+   Fade Animation
+========================== */
+
+.auth-left,
+.auth-right {
+  animation: fadeUp .8s ease;
+}
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+/* ==========================
+   Mobile
+========================== */
+
+/* ==========================
+   Tablet (992px and below)
+========================== */
+@media (max-width: 992px) {
+
+  .auth-container {
+    width: 95%;
+    height: auto;
+    grid-template-columns: 1fr;
+    border-radius: 30px;
+  }
+
+  .auth-left {
+    display: none;
+  }
+
+  .auth-right {
+    padding: 40px 25px;
+  }
+
+  .auth-page {
+    padding: 20px;
+  }
+
+  .auth-form-card {
+    max-width: 100%;
+  }
+}
+
+/* ==========================
+   Mobile (768px and below)
+========================== */
+@media (max-width: 768px) {
+
+  .auth-container {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .auth-page {
+    padding: 16px;
+    min-height: 100vh;
+  }
+
+  .auth-page::before {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: -150px;
+  }
+
+  .auth-page::after {
+    width: 250px;
+    height: 250px;
+    right: -120px;
+    bottom: -100px;
+  }
+
+  .auth-right {
+    padding: 30px 20px;
+  }
+
+  .auth-form-card {
+    max-width: 100%;
+  }
+}
+
+/* ==========================
+   Small Mobile (576px and below)
+========================== */
+@media (max-width: 576px) {
+
+  .auth-container {
+    border-radius: 16px;
+  }
+
+  .auth-page {
+    padding: 12px;
+  }
+
+  .auth-page::before,
+  .auth-page::after {
+    display: none;
+  }
+
+  .bg-circle {
+    display: none;
+  }
+
+  .auth-right {
+    padding: 20px 16px;
+  }
+
+  .auth-form-card {
+    width: 100%;
+  }
+}

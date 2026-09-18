@@ -1,0 +1,17 @@
+.chart-card{
+background:#fff;
+padding:25px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.chart-header{
+margin-bottom:20px;
+}
+
+.chart-header h2{
+margin:0;
+font-size:22px;
+color:#2F3437;
+font-weight:700;
+}

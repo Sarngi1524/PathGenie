@@ -1,0 +1,75 @@
+.attendance-page{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    min-width:0;
+}
+
+.attendance-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+}
+
+.attendance-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.checkin-btn,
+.checkout-btn{
+    border:none;
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+}
+
+.checkin-btn{
+    background:#4caf50;
+}
+
+.checkout-btn{
+    background:#ff9800;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    min-width: 580px;
+}
+
+@media (max-width: 768px) {
+    .attendance-actions {
+        width: 100%;
+    }
+
+    .checkin-btn,
+    .checkout-btn {
+        flex: 1 1 160px;
+    }
+
+    table {
+        min-width: 520px;
+    }
+}
+
+th{
+    background:#f6ead4;
+}
+
+th,
+td{
+    padding:15px;
+    text-align:left;
+}
+
+tbody tr{
+    border-bottom:1px solid #eee;
+}

@@ -1,0 +1,102 @@
+/* ===========================
+   Fleet Header
+=========================== */
+
+.fleet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* ===========================
+   Left Side
+=========================== */
+
+.fleet-header-left h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #818263;
+  font-weight: 700;
+}
+
+.fleet-header-left p {
+  margin-top: 8px;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* ===========================
+   Add Button
+=========================== */
+
+.add-vehicle-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #818263;
+  color: white;
+
+  padding: 14px 22px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.add-vehicle-btn:hover {
+  background: #6c6d52;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(129, 130, 99, 0.3);
+}
+
+.add-vehicle-btn svg {
+  font-size: 14px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+  .fleet-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fleet-header-left h1 {
+    font-size: 1.7rem;
+  }
+
+  .add-vehicle-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .fleet-header {
+    padding: 18px;
+  }
+
+  .fleet-header-left h1 {
+    font-size: 1.5rem;
+  }
+
+  .fleet-header-left p {
+    font-size: 0.9rem;
+  }
+}

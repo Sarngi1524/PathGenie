@@ -1,0 +1,32 @@
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.settings-header {
+  background: #FFFAF2;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+
+.settings-header h1 {
+  color: #818263;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.settings-header p {
+  color: #777;
+  font-size: 15px;
+}
+
+.settings-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  font-size: 20px;
+  color: #818263;
+}

@@ -1,0 +1,84 @@
+.settings-card {
+  background: #FFFAF2;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.card-header {
+  margin-bottom: 25px;
+}
+
+.card-header h2 {
+  color: #818263;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.card-header p {
+  color: #777;
+  font-size: 14px;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  grid-column: 1/-1;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #F6EAD4;
+  border-radius: 14px;
+  padding: 0 16px;
+  height: 55px;
+  transition: .3s;
+}
+
+.input-box svg {
+  color: #818263;
+  font-size: 18px;
+}
+
+.input-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #333;
+}
+
+.input-box:focus-within {
+  border: 2px solid #C2C395;
+}
+
+@media (max-width:768px) {
+
+  .settings-card {
+    padding: 22px;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+}

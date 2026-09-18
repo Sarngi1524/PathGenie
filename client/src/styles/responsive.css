@@ -1,0 +1,474 @@
+/* ====================================
+   Mobile Overlay Backdrop
+==================================== */
+.sidebar.active::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+  animation: fadeIn 0.3s ease;
+  pointer-events: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ====================================
+   Large Devices (1200px and below)
+==================================== */
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+
+  .navbar-top h2 {
+    font-size: 24px;
+  }
+
+  .search-bar {
+    max-width: 280px;
+  }
+}
+
+/* ====================================
+   Medium Devices (992px and below)
+==================================== */
+@media (max-width: 992px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    margin: 0;
+    border-radius: 0;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .dashboard-main {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .navbar {
+    padding: 16px;
+  }
+
+  .navbar-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .navbar-top h2 {
+    font-size: 20px;
+  }
+
+  .navbar-top p {
+    font-size: 13px;
+  }
+
+  .navbar-icons {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-bar {
+    width: 100%;
+    height: 44px;
+  }
+}
+
+/* ====================================
+   Tablets (768px and below)
+==================================== */
+@media (max-width: 768px) {
+  * {
+    font-size: 14px;
+  }
+
+  .sidebar {
+    width: 240px;
+  }
+
+  .sidebar-logo {
+    margin-bottom: 25px;
+  }
+
+  .sidebar-menu {
+    gap: 6px;
+  }
+
+  .menu-item {
+    padding: 12px 14px;
+    font-size: 14px;
+    gap: 12px;
+  }
+
+  .menu-icon {
+    font-size: 18px;
+  }
+
+  .menu-item span:last-child {
+    display: none;
+  }
+
+  .menu-item:hover span:last-child {
+    display: inline;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .user-card h4 {
+    font-size: 14px;
+  }
+
+  .user-card p {
+    font-size: 11px;
+  }
+
+  .logout-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .dashboard-main {
+    padding: 10px;
+  }
+
+  .dashboard-content {
+    margin-top: 16px;
+  }
+
+  .navbar {
+    padding: 14px;
+    gap: 16px;
+    border-radius: 20px;
+  }
+
+  .navbar-icons button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .profile {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .search-bar {
+    height: 40px;
+    border-radius: 14px;
+    padding: 0 14px;
+    gap: 10px;
+  }
+
+  .search-bar input {
+    font-size: 14px;
+  }
+
+  .auth-container {
+    width: 90%;
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .auth-left {
+    display: none;
+  }
+
+  .auth-right {
+    padding: 30px 20px;
+  }
+
+  .auth-page {
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  .auth-form-card {
+    max-width: 100%;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 40px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+}
+
+/* ====================================
+   Small Devices (576px and below)
+==================================== */
+@media (max-width: 576px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    font-size: 12px;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    border-radius: 20px 20px 0 0;
+    margin: 0;
+    transform: translateY(100%);
+    z-index: 999;
+  }
+
+  .sidebar.active {
+    transform: translateY(0);
+  }
+
+  .sidebar-logo {
+    display: none;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .menu-item {
+    flex: 0 0 auto;
+    flex-direction: column;
+    padding: 8px 10px;
+    font-size: 11px;
+    gap: 4px;
+    border-radius: 12px;
+  }
+
+  .menu-item span:last-child {
+    display: none;
+  }
+
+  .menu-item.active span:last-child {
+    display: inline;
+    font-size: 10px;
+  }
+
+  .menu-icon {
+    font-size: 16px;
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .dashboard-main {
+    width: 100%;
+    padding: 8px;
+    padding-bottom: 100px;
+  }
+
+  .dashboard-content {
+    margin-top: 12px;
+  }
+
+  .navbar {
+    padding: 12px;
+    gap: 12px;
+    border-radius: 16px;
+  }
+
+  .navbar-top {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .navbar-top h2 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .navbar-top p {
+    font-size: 12px;
+  }
+
+  .navbar-icons {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .navbar-icons button {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .profile {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .search-bar {
+    width: 100%;
+    height: 36px;
+    border-radius: 12px;
+    padding: 0 12px;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .search-bar input {
+    font-size: 12px;
+  }
+
+  .auth-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .auth-page {
+    padding: 16px;
+    min-height: 100vh;
+  }
+
+  .auth-page::before,
+  .auth-page::after {
+    width: 250px;
+    height: 250px;
+  }
+
+  .auth-right {
+    padding: 20px 16px;
+  }
+
+  .auth-form-card {
+    max-width: 100%;
+  }
+
+  .auth-badge {
+    font-size: 12px;
+    padding: 8px 14px;
+    margin-bottom: 18px;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 12px;
+    border-radius: 30px;
+    width: 100%;
+  }
+
+  .logout-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .user-card h4 {
+    font-size: 12px;
+  }
+
+  .user-card p {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  /* Hide overflow on small screens */
+  body {
+    overflow-x: hidden;
+  }
+}

@@ -1,0 +1,57 @@
+.btn {
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+/* Primary */
+
+.btn-primary {
+    background: var(--button-primary, var(--primary));
+    color: var(--button-text, #fff);
+}
+
+.btn-primary:hover {
+    background: var(--button-primary-hover, #6f7054);
+    transform: translateY(-2px);
+}
+
+/* Secondary */
+
+.btn-secondary {
+    background: var(--button-secondary, var(--secondary));
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    background: var(--button-secondary-hover, #b4b57f);
+}
+
+/* Outline */
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--button-outline, var(--primary));
+    color: var(--button-outline, var(--primary));
+}
+
+.btn-outline:hover {
+    background: var(--button-primary, var(--primary));
+    color: var(--button-text, white);
+}
+
+/* Danger */
+
+.btn-danger {
+    background: var(--button-danger, var(--danger));
+    color: var(--button-text, white);
+}
+
+.btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}

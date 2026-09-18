@@ -1,0 +1,52 @@
+.drivers-pagination{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+
+margin-top:10px;
+}
+
+.drivers-pagination button{
+
+width:42px;
+height:42px;
+
+border:none;
+border-radius:12px;
+
+background:white;
+color:#555;
+
+cursor:pointer;
+
+font-weight:600;
+font-size:15px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.06);
+
+transition:.25s;
+}
+
+.drivers-pagination button:hover:not(:disabled){
+
+background:#818263;
+color:white;
+
+transform:translateY(-2px);
+
+}
+
+.drivers-pagination button.active{
+
+background:#818263;
+color:white;
+
+}
+
+.drivers-pagination button:disabled{
+
+opacity:.45;
+cursor:not-allowed;
+
+}

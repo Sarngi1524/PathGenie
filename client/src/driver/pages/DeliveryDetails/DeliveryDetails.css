@@ -1,0 +1,65 @@
+.delivery-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.detail-card,
+.status-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.detail-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.detail-card strong {
+  color: #555;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.detail-card p {
+  margin: 0;
+  color: #333;
+}
+
+.status-card {
+  max-width: 420px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .detail-card,
+  .status-card {
+    padding: 18px;
+  }
+}
+
+.status-card select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 16px 0;
+}
+
+.status-card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #818263;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.status-card button:hover {
+  background: #6d6e54;
+}

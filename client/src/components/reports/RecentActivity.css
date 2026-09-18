@@ -1,0 +1,79 @@
+.recent-card{
+background:#fff;
+padding:24px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.activity-list{
+display:flex;
+flex-direction:column;
+gap:15px;
+margin-top:20px;
+}
+
+.activity-item{
+display:flex;
+align-items:center;
+gap:15px;
+padding:15px;
+border-radius:12px;
+background:#FFFAF2;
+transition:.3s;
+}
+
+.activity-item:hover{
+transform:translateX(5px);
+}
+
+.activity-icon{
+width:50px;
+height:50px;
+border-radius:50%;
+background:#818263;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:20px;
+}
+
+.activity-info{
+flex:1;
+}
+
+.activity-info h4{
+margin:0;
+font-size:16px;
+color:#2F3437;
+}
+
+.activity-info p{
+margin:5px 0;
+color:#777;
+font-size:14px;
+}
+
+.activity-info small{
+color:#999;
+}
+
+.activity-status{
+text-align:right;
+}
+
+.status-badge{
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+background:#C2C395;
+color:#fff;
+font-size:13px;
+font-weight:600;
+margin-bottom:8px;
+}
+
+.activity-status small{
+display:block;
+color:#888;
+}

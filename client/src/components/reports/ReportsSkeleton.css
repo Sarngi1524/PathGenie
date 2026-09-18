@@ -1,0 +1,163 @@
+.reports-skeleton{
+display:flex;
+flex-direction:column;
+gap:24px;
+}
+
+/* Stats */
+
+.stats-skeleton-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.stat-skeleton-card{
+background:#fff;
+padding:20px;
+border-radius:18px;
+display:flex;
+align-items:center;
+gap:18px;
+box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+.stat-icon-skeleton{
+width:60px;
+height:60px;
+border-radius:16px;
+background:#ececec;
+}
+
+.stat-content{
+flex:1;
+}
+
+.line{
+border-radius:8px;
+background:#ececec;
+margin-bottom:10px;
+}
+
+.line-lg{
+height:26px;
+width:70%;
+}
+
+.line-md{
+height:22px;
+width:50%;
+}
+
+.line-sm{
+height:14px;
+width:90%;
+}
+
+.line-xs{
+height:12px;
+width:65%;
+}
+
+/* Charts */
+
+.chart-skeleton{
+height:380px;
+background:#fff;
+border-radius:18px;
+box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+.charts-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:24px;
+}
+
+.small-chart-skeleton{
+background:#fff;
+padding:20px;
+border-radius:18px;
+box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+.chart-placeholder{
+height:250px;
+border-radius:12px;
+background:#ececec;
+margin-top:20px;
+}
+
+/* Bottom Cards */
+
+.bottom-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:24px;
+}
+
+.list-card-skeleton{
+background:#fff;
+padding:20px;
+border-radius:18px;
+box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+.list-item{
+display:flex;
+align-items:center;
+gap:14px;
+margin-top:18px;
+}
+
+.circle{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#ececec;
+}
+
+.list-text{
+flex:1;
+}
+
+/* Shimmer */
+
+.shimmer{
+background:linear-gradient(
+90deg,
+#ececec 25%,
+#f6f6f6 50%,
+#ececec 75%
+);
+
+background-size:200% 100%;
+
+animation:shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer{
+
+0%{
+background-position:200% 0;
+}
+
+100%{
+background-position:-200% 0;
+}
+
+}
+
+@media(max-width:768px){
+
+.stats-skeleton-grid,
+.charts-grid,
+.bottom-grid{
+grid-template-columns:1fr;
+}
+
+.chart-skeleton{
+height:300px;
+}
+
+}

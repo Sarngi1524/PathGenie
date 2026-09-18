@@ -1,0 +1,48 @@
+.drivers-skeleton{
+
+background:white;
+
+padding:20px;
+
+border-radius:18px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+}
+
+.driver-skeleton-row{
+
+height:60px;
+
+border-radius:10px;
+
+margin-bottom:16px;
+
+background:linear-gradient(
+90deg,
+#f1f1f1 25%,
+#ececec 50%,
+#f1f1f1 75%
+);
+
+background-size:200% 100%;
+
+animation:loading 1.4s infinite;
+
+}
+
+.driver-skeleton-row:last-child{
+margin-bottom:0;
+}
+
+@keyframes loading{
+
+0%{
+background-position:200% 0;
+}
+
+100%{
+background-position:-200% 0;
+}
+
+}

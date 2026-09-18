@@ -1,0 +1,119 @@
+.customer-cell{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.customer-cell strong{
+    color:#2F3437;
+    font-size:14px;
+}
+
+.customer-cell span{
+    color:#777;
+    font-size:13px;
+}
+
+.address-cell{
+    max-width:220px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.status,
+.priority{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:110px;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.status.pending{
+    background:#FFF3D6;
+    color:#D98B00;
+}
+
+.status.assigned{
+    background:#E9F2FF;
+    color:#2563EB;
+}
+
+.status.transit{
+    background:#E3F3FF;
+    color:#0284C7;
+}
+
+.status.delivered{
+    background:#DCFCE7;
+    color:#16A34A;
+}
+
+.status.cancelled{
+    background:#FEE2E2;
+    color:#DC2626;
+}
+
+.priority.high{
+    background:#FEE2E2;
+    color:#DC2626;
+}
+
+.priority.medium{
+    background:#FFF3D6;
+    color:#D98B00;
+}
+
+.priority.low{
+    background:#E8F7EB;
+    color:#16A34A;
+}
+
+.row-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.action-btn{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s;
+    font-size:15px;
+    box-shadow:0 6px 14px rgba(0,0,0,.08);
+}
+
+.action-btn.view{
+    background:#EEF6FF;
+    color:#2563EB;
+}
+
+.action-btn.edit{
+    background:#FFF6DD;
+    color:#D98B00;
+}
+
+.action-btn.delete{
+    background:#FFEAEA;
+    color:#DC2626;
+}
+.action-btn.assign{
+    background:#E8F7EB;
+    color:#16A34A;
+}
+
+.action-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+}

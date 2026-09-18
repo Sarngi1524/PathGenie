@@ -1,0 +1,76 @@
+/* ===========================
+   Fleet Page
+=========================== */
+
+.fleet-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  min-height: 100vh;
+  background: #fffaf2;
+}
+
+/* ===========================
+   Section Card
+=========================== */
+
+.fleet-section {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid #efefef;
+}
+
+/* ===========================
+   Table Wrapper
+=========================== */
+
+.fleet-table-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* ===========================
+   Pagination
+=========================== */
+
+.fleet-pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 992px) {
+  .fleet-page {
+    padding: 18px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fleet-page {
+    padding: 15px;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .fleet-page {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .fleet-section,
+  .fleet-table-wrapper {
+    border-radius: 14px;
+    padding: 16px;
+  }
+}

@@ -1,0 +1,29 @@
+.fleet-empty {
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 70px 30px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,.05);
+}
+
+.empty-icon {
+  font-size: 80px;
+
+  color: #C2C395;
+
+  margin-bottom: 20px;
+}
+
+.fleet-empty h2 {
+  color: #818263;
+
+  margin-bottom: 10px;
+}
+
+.fleet-empty p {
+  color: #777;
+}

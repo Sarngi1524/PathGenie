@@ -1,0 +1,127 @@
+/* ===========================
+   Fleet Filters
+=========================== */
+
+.fleet-filters {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+
+  flex-wrap: wrap;
+}
+
+/* Search */
+
+.filter-search {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+}
+
+.filter-search input {
+  width: 100%;
+  padding: 13px 16px 13px 45px;
+
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  transition: 0.3s;
+}
+
+.filter-search input:focus {
+  outline: none;
+  border-color: #818263;
+  box-shadow: 0 0 0 4px rgba(129,130,99,.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #818263;
+}
+
+/* Select */
+
+.fleet-filters select {
+  min-width: 170px;
+
+  padding: 13px 15px;
+
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  background: white;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.fleet-filters select:focus {
+  outline: none;
+  border-color: #818263;
+  box-shadow: 0 0 0 4px rgba(129,130,99,.15);
+}
+
+/* Button */
+
+.clear-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 13px 18px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #DDBAAE;
+  color: #333;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.clear-filter-btn:hover {
+  background: #cfa596;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+
+@media (max-width:900px){
+
+.fleet-filters{
+    flex-direction:column;
+    align-items:stretch;
+}
+
+.filter-search{
+    width:100%;
+}
+
+.fleet-filters select{
+    width:100%;
+}
+
+.clear-filter-btn{
+    width:100%;
+    justify-content:center;
+}
+
+}

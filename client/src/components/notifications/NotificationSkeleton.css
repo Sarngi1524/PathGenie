@@ -1,0 +1,61 @@
+.notification-skeleton {
+  padding: 10px;
+}
+
+.skeleton-card {
+  display: flex;
+  gap: 14px;
+  padding: 15px;
+  align-items: flex-start;
+}
+
+.skeleton-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ececec;
+  animation: shimmer 1.2s infinite;
+}
+
+.skeleton-content {
+  flex: 1;
+}
+
+.skeleton-title,
+.skeleton-text,
+.skeleton-time {
+  background: #ececec;
+  border-radius: 6px;
+  animation: shimmer 1.2s infinite;
+}
+
+.skeleton-title {
+  width: 70%;
+  height: 14px;
+  margin-bottom: 10px;
+}
+
+.skeleton-text {
+  width: 95%;
+  height: 12px;
+  margin-bottom: 8px;
+}
+
+.skeleton-time {
+  width: 40%;
+  height: 10px;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: .5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .5;
+  }
+}

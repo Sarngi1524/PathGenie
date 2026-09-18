@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+
+# Build and coverage output
+dist/
+dist-ssr/
+build/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Logs and debug files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime files
+*.pid
+*.seed
+*.pid.lock
+
+# Uploaded user files
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Temporary files
+.tmp/
+tmp/
+.temp/
+.cache/
+*.tmp
+*.temp
+
+# Editor and IDE files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.user
+*.userossc
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Test artifacts
+.nyc_output/
+playwright-report/
+test-results/

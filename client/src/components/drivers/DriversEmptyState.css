@@ -1,0 +1,52 @@
+.drivers-empty{
+
+background:white;
+
+padding:70px 30px;
+
+border-radius:18px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+}
+
+.drivers-empty svg{
+
+font-size:70px;
+
+color:#818263;
+
+margin-bottom:20px;
+
+}
+
+.drivers-empty h2{
+
+margin:0;
+
+color:#333;
+
+font-size:28px;
+
+}
+
+.drivers-empty p{
+
+margin-top:12px;
+
+color:#777;
+
+font-size:16px;
+
+max-width:400px;
+
+line-height:1.6;
+
+}

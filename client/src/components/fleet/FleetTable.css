@@ -1,0 +1,56 @@
+/* ==========================
+   Fleet Table
+========================== */
+
+.fleet-table-container {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.fleet-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1050px;
+}
+
+/* Header */
+
+.fleet-table thead {
+  background: #818263;
+}
+
+.fleet-table thead th {
+  color: white;
+  padding: 18px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Body */
+
+.fleet-table tbody tr {
+  transition: 0.3s;
+}
+
+.fleet-table tbody tr:hover {
+  background: #fffaf2;
+}
+
+.fleet-table tbody td {
+  padding: 18px;
+  border-bottom: 1px solid #eeeeee;
+  color: #444;
+  vertical-align: middle;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .fleet-table {
+    min-width: 900px;
+  }
+}

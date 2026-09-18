@@ -1,0 +1,62 @@
+.route-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.action-btn{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.25s;
+}
+
+.action-btn:hover{
+    transform:translateY(-2px);
+}
+
+.action-btn.view{
+    background:#DCD4C1;
+    color:#4F5B45;
+}
+
+.action-btn.map{
+    background:#EFD7CF;
+    color:#A55A3C;
+}
+
+.status-badge{
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-badge.planned{
+    background:#FFF4D8;
+    color:#D97706;
+}
+
+.status-badge.started{
+    background:#DCEFE0;
+    color:#2E7D32;
+}
+
+.status-badge.completed{
+    background:#E6F6EA;
+    color:#1B5E20;
+}
+.action-btn.start{
+    background:#FFF3D4;
+    color:#E67E22;
+}
+
+.action-btn.complete{
+    background:#DDF8E7;
+    color:#16A34A;
+}

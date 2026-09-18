@@ -1,0 +1,45 @@
+.route-skeleton{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+.skeleton-header{
+    width:220px;
+    height:24px;
+    background:#ececec;
+    border-radius:8px;
+    margin-bottom:24px;
+    animation:pulse 1.5s infinite;
+}
+
+.skeleton-row{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:16px;
+    margin-bottom:18px;
+}
+
+.skeleton-cell{
+    height:20px;
+    background:#ececec;
+    border-radius:6px;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+opacity:.55;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:.55;
+}
+
+}

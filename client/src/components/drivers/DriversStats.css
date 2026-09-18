@@ -1,0 +1,112 @@
+/* ===========================
+   Driver Statistics
+=========================== */
+
+.drivers-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.driver-stat-card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+
+  transition: .3s;
+}
+
+.driver-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+/* ===========================
+   Icon
+=========================== */
+
+.driver-stat-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+
+  color: white;
+  font-size: 24px;
+}
+
+.total .driver-stat-icon {
+  background: #818263;
+}
+
+.active .driver-stat-icon {
+  background: #4CAF50;
+}
+
+.inactive .driver-stat-icon {
+  background: #F44336;
+}
+
+/* ===========================
+   Content
+=========================== */
+
+.driver-stat-content h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #333;
+}
+
+.driver-stat-content p {
+  margin-top: 6px;
+  color: #777;
+  font-size: 15px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+.drivers-stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.drivers-stats{
+grid-template-columns:1fr;
+}
+
+.driver-stat-card{
+padding:18px;
+}
+
+.driver-stat-icon{
+width:55px;
+height:55px;
+font-size:22px;
+}
+
+.driver-stat-content h2{
+font-size:26px;
+}
+
+}

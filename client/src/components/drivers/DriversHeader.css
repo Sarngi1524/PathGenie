@@ -1,0 +1,88 @@
+/* ===========================
+   Drivers Header
+=========================== */
+
+.drivers-header {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.drivers-header-content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.drivers-header-icon {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 16px;
+
+  background: #F6EAD4;
+  color: #818263;
+
+  font-size: 28px;
+}
+
+.drivers-header h1 {
+  margin: 0;
+  color: #333;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.drivers-header p {
+  margin-top: 8px;
+  color: #777;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:768px){
+
+.drivers-header{
+padding:20px;
+}
+
+.drivers-header-content{
+align-items:flex-start;
+}
+
+.drivers-header h1{
+font-size:24px;
+}
+
+.drivers-header-icon{
+width:55px;
+height:55px;
+font-size:24px;
+}
+
+}
+
+@media (max-width:500px){
+
+.drivers-header-content{
+flex-direction:column;
+text-align:center;
+width:100%;
+align-items:center;
+}
+
+}
