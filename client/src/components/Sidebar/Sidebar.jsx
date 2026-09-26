@@ -1,5 +1,5 @@
 import "./Sidebar.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -8,7 +8,6 @@ import {
   MdLocalShipping,
   MdDirections,
   MdSettings,
-  MdLogout,
 } from "react-icons/md";
 
 import {
@@ -16,17 +15,12 @@ import {
   FaUsers,
   FaChartBar,
 } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 
 import Logo from "../common/Logo/Logo";
 
 export default function Sidebar({ isOpen = false }) {
-  const { logout } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
+  const { user } = useContext(AuthContext);
 
   const menuItems = [
     {
@@ -95,32 +89,17 @@ export default function Sidebar({ isOpen = false }) {
       </nav>
 
       <div className="sidebar-footer">
+        <div className="user-card">
+          <div className="avatar avatar-illustration" aria-hidden="true">
+            <FaUserCircle />
+          </div>
 
-  <div className="user-card">
-
-      <div className="avatar">
-          S
+          <div className="user-info">
+            <h4>{user?.name || "User"}</h4>
+            <p>{user?.role === "driver" ? "Driver" : "Administrator"}</p>
+          </div>
+        </div>
       </div>
-
-      <div>
-
-          <h4>Sarngi</h4>
-
-          <p>Administrator</p>
-
-      </div>
-
-  </div>
-
-  <button className="logout-btn" onClick={handleLogout}>
-
-      <MdLogout />
-
-      <span className="logout-text">Logout</span>
-
-  </button>
-
-</div>
 
     </aside>
   );

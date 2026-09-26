@@ -1,10 +1,7 @@
 .report-header{
 display:flex;
 align-items:center;
-padding:25px;
-background:#fff;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.05);
+padding:0;
 }
 
 .report-header-left{
@@ -27,7 +24,7 @@ font-size:30px;
 
 .report-header h1{
 margin:0;
-font-size:28px;
+font-size:34px;
 font-weight:700;
 color:#2f3437;
 }
@@ -36,6 +33,7 @@ color:#2f3437;
 margin-top:6px;
 color:#777;
 font-size:15px;
+line-height:1.6;
 }
 
 
@@ -55,14 +53,8 @@ flex-direction:column;
 align-items:flex-start;
 }
 
-.report-header-actions{
-width:100%;
-display:grid;
-grid-template-columns:1fr 1fr;
-}
-
-.report-header-actions button{
-justify-content:center;
+.report-header h1{
+font-size:28px;
 }
 
 }

@@ -9,6 +9,9 @@
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  display: block;
+  flex: 0 0 48px;
+  background: #f6ead4;
 }
 
 .driver-avatar.placeholder {

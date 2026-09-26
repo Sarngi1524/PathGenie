@@ -158,6 +158,9 @@
   text-decoration: none;
 
   transition: .3s;
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
 }
 
 .register-link a:hover {

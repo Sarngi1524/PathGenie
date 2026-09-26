@@ -6,6 +6,7 @@ import {
 } from "../../services/driverService";
 
 import "./Profile.css";
+import { notify } from "../../../utils/notifications";
 
 export default function Profile() {
   const [driver, setDriver] = useState(null);
@@ -57,12 +58,12 @@ export default function Profile() {
 
       await updateDriverProfile(formData);
 
-      alert("Profile updated successfully.");
+      notify.success("Profile updated successfully.");
 
       loadProfile();
 
     } catch (err) {
-      alert(err.response?.data?.message);
+      notify.error(err.response?.data?.message || "Unable to update profile.");
     } finally {
       setSaving(false);
     }
@@ -94,6 +95,12 @@ export default function Profile() {
               alt="Driver"
             />
 
+          </div>
+
+          <div className="profile-intro">
+            <span className="profile-kicker">Driver Profile</span>
+            <h2>{formData.name || "Driver"}</h2>
+            <p>{driver.role === "driver" ? "PathGenie Driver" : driver.role}</p>
           </div>
 
           <form onSubmit={handleSubmit}>

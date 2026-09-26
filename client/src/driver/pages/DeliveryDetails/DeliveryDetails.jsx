@@ -8,6 +8,7 @@ import {
 } from "../../services/driverService";
 
 import "./DeliveryDetails.css";
+import { notify } from "../../../utils/notifications";
 
 export default function DeliveryDetails() {
   const { id } = useParams();
@@ -34,11 +35,11 @@ export default function DeliveryDetails() {
     try {
       await updateDeliveryStatus(id, { status });
 
-      alert("Delivery updated successfully.");
+      notify.success("Delivery updated successfully.");
 
       fetchDelivery();
     } catch (err) {
-      alert(err.response?.data?.message);
+      notify.error(err.response?.data?.message || "Unable to update delivery.");
     }
   };
 

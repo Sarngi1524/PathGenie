@@ -8,6 +8,7 @@ import {
 } from "../../services/driverService";
 
 import "./Attendance.css";
+import { notify } from "../../../utils/notifications";
 
 export default function Attendance() {
   const [attendance, setAttendance] = useState([]);
@@ -31,18 +32,20 @@ export default function Attendance() {
   const handleCheckIn = async () => {
     try {
       await checkIn();
+      notify.success("Checked in successfully.");
       fetchAttendance();
     } catch (err) {
-      alert(err.response?.data?.message);
+      notify.error(err.response?.data?.message || "Unable to check in.");
     }
   };
 
   const handleCheckOut = async () => {
     try {
       await checkOut();
+      notify.success("Checked out successfully.");
       fetchAttendance();
     } catch (err) {
-      alert(err.response?.data?.message);
+      notify.error(err.response?.data?.message || "Unable to check out.");
     }
   };
 

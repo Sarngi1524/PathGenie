@@ -45,7 +45,10 @@ export default function DeliveryHeader({
             <div className="circle circle2"></div>
 
             <div className="truck-icon">
-              🚚
+              <img
+                src="/images/auth/delivery-truck.png"
+                alt="PathGenie delivery vehicle"
+              />
             </div>
 
           </div>

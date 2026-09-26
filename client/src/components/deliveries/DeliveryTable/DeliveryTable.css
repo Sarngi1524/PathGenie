@@ -1,12 +1,13 @@
 .delivery-table-card{
     background:#fff;
-    border-radius:20px;
+    border-radius:24px;
     overflow:hidden;
     box-shadow:0 12px 30px rgba(0,0,0,.05);
+    border:1px solid rgba(129,130,99,.1);
 }
 
 .table-header{
-    padding:24px;
+    padding:24px 26px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -16,7 +17,7 @@
 .table-header h2{
     margin:0;
     color:#2F3437;
-    font-size:22px;
+    font-size:24px;
 }
 
 .table-header span{
@@ -26,6 +27,7 @@
     border-radius:20px;
     font-size:14px;
     font-weight:600;
+    white-space:nowrap;
 }
 
 .table-responsive{
@@ -40,7 +42,7 @@
 .delivery-table th{
     background:#FFFAF2;
     color:#555;
-    padding:16px;
+    padding:17px 16px;
     text-align:left;
     font-size:14px;
     font-weight:600;
@@ -48,9 +50,14 @@
 }
 
 .delivery-table td{
-    padding:18px 16px;
+    padding:20px 16px;
     border-top:1px solid #f1f1f1;
     vertical-align:middle;
+}
+
+.delivery-table th:last-child,
+.delivery-table td:last-child{
+    min-width:206px;
 }
 
 .delivery-table tbody tr{
@@ -59,6 +66,10 @@
 
 .delivery-table tbody tr:hover{
     background:#fcfaf5;
+}
+
+.delivery-table tbody tr:last-child td{
+    border-bottom:0;
 }
 
 @media(max-width:992px){

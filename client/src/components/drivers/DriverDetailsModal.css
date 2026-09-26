@@ -90,6 +90,9 @@ height:110px;
 
 border-radius:50%;
 object-fit:cover;
+display:block;
+flex:0 0 110px;
+background:#F6EAD4;
 }
 
 .driver-profile-avatar.placeholder{

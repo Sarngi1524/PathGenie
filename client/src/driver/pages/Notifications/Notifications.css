@@ -1,131 +1,256 @@
 .notifications-page {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.driver-notification-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px;
+  border: 1px solid rgba(129, 130, 99, 0.12);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #fffaf2 100%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.driver-notification-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   min-width: 0;
 }
 
-.notification-header {
+.driver-notification-icon,
+.driver-notification-card-icon {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  justify-content: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: #f6ead4;
+  color: var(--primary, #818263);
+  font-size: 20px;
 }
 
-.notification-header h2 {
-  margin: 0 0 6px;
+.driver-notification-kicker {
+  color: var(--primary, #818263);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
-.notification-header p {
+.driver-notification-header h2 {
+  margin: 3px 0 2px;
+  color: #333;
+  font-size: 28px;
+}
+
+.driver-notification-header p {
   margin: 0;
-  color: #666;
+  color: #777;
+  font-size: 14px;
 }
 
-.mark-all-btn {
-  padding: 10px 18px;
-  border: none;
-  background: #818263;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.notification-card {
-  display: flex;
-  justify-content: space-between;
+.driver-mark-all-btn,
+.driver-read-btn {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 11px;
+  background: var(--primary, #818263);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.driver-mark-all-btn {
+  min-height: 42px;
+  padding: 0 16px;
+}
+
+.driver-notification-card {
+  display: flex;
+  align-items: flex-start;
   gap: 16px;
-  background: white;
   padding: 20px;
-  border-radius: 16px;
-  border: 1px solid #ececec;
-  transition: 0.3s;
-  flex-wrap: wrap;
+  border: 1px solid #ece8df;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .04);
+  transition: .25s ease;
 }
 
-.notification-card:hover {
+.driver-notification-card:hover {
   transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, .08);
 }
 
-.notification-card.unread {
-  border-left: 5px solid #818263;
+.driver-notification-card.unread {
+  border-left: 4px solid var(--primary, #818263);
+  background: #fffdf8;
 }
 
-.notification-card.read {
-  opacity: 0.75;
+.driver-notification-card.read {
+  opacity: .78;
 }
 
-.notification-content {
+.driver-notification-card-icon {
+  flex-basis: 42px;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  font-size: 16px;
+}
+
+.driver-notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.driver-notification-content h3 {
+  margin: 0 0 6px;
+  color: #333;
+  font-size: 17px;
+}
+
+.driver-notification-content p {
+  margin: 0 0 10px;
+  color: #666;
+  line-height: 1.55;
+}
+
+.driver-notification-content small {
+  color: #999;
+  font-size: 12px;
+}
+
+.driver-delivery-tag {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #f6ead4;
+  color: #62634b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.driver-read-btn {
+  align-self: center;
+  padding: 10px 14px;
+  background: #c2c395;
+  color: #4f5038;
+}
+
+.driver-empty-state {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 0;
-  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 330px;
+  padding: 34px 20px;
+  border: 1px solid rgba(129, 130, 99, .12);
+  border-radius: 24px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .05);
 }
 
-.notification-content h3 {
+.driver-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82px;
+  height: 82px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: #f6ead4;
+  color: #c2c395;
+  font-size: 34px;
+}
+
+.driver-empty-state h3 {
+  margin: 0 0 8px;
+  color: #444;
+  font-size: 20px;
+}
+
+.driver-empty-state p {
   margin: 0;
-}
-
-.notification-content p {
-  color: #666;
-  margin: 0;
-}
-
-.notification-content small {
   color: #888;
 }
 
-.delivery-tag {
-  background: #f6ead4;
-  width: fit-content;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 13px;
-}
-
-.read-btn {
-  border: none;
-  background: #c2c395;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.empty-state {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .notification-card {
-    padding: 18px;
+@media (max-width: 640px) {
+  .notifications-page {
+    gap: 14px;
   }
 
-  .mark-all-btn,
-  .read-btn {
+  .driver-notification-header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .driver-notification-header h2 {
+    font-size: 24px;
+  }
+
+  .driver-mark-all-btn {
     width: 100%;
   }
+
+  .driver-notification-card {
+    padding: 16px;
+  }
+
+  .driver-read-btn {
+    align-self: flex-start;
+    padding: 9px 12px;
+  }
 }
 
-@media (max-width: 576px) {
-  .notifications-page {
-    gap: 16px;
-  }
-
-  .notification-header {
-    align-items: stretch;
-  }
-
-  .notification-card {
+@media (max-width: 440px) {
+  .driver-notification-title {
     align-items: flex-start;
   }
 
-  .notification-content p {
-    font-size: 14px;
+  .driver-notification-icon {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .driver-notification-card {
+    gap: 10px;
+  }
+
+  .driver-notification-card-icon {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .driver-notification-card {
+    flex-wrap: wrap;
+  }
+
+  .driver-notification-content {
+    flex-basis: calc(100% - 52px);
+  }
+
+  .driver-read-btn {
+    margin-left: 46px;
   }
 }

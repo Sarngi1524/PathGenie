@@ -1,10 +1,15 @@
 .empty-notifications {
-  padding: 45px 20px;
+  min-height: 250px;
+  padding: 42px 20px 36px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .empty-icon {
-  font-size: 55px;
+  font-size: 58px;
   color: #c2c395;
   margin-bottom: 15px;
 }

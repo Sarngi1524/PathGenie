@@ -28,7 +28,7 @@
 ==================================== */
 @media (max-width: 1200px) {
   .sidebar {
-    width: 220px;
+    width: 260px;
   }
 
   .navbar {
@@ -112,7 +112,7 @@
   }
 
   .sidebar {
-    width: 240px;
+    width: 270px;
   }
 
   .sidebar-logo {
@@ -131,14 +131,6 @@
 
   .menu-icon {
     font-size: 18px;
-  }
-
-  .menu-item span:last-child {
-    display: none;
-  }
-
-  .menu-item:hover span:last-child {
-    display: inline;
   }
 
   .avatar {
@@ -248,6 +240,27 @@
   }
 }
 
+@media (max-width: 576px) {
+  .sidebar-menu {
+    width: 100%;
+  }
+
+  .menu-item {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .menu-item .menu-label,
+  .menu-item.active .menu-label {
+    display: block;
+    width: 100%;
+    max-width: none;
+    font-size: 9px;
+  }
+}
+
 /* ====================================
    Small Devices (576px and below)
 ==================================== */
@@ -284,27 +297,29 @@
 
   .sidebar-menu {
     flex-direction: row;
+    width: 100%;
     gap: 4px;
     overflow-x: auto;
     padding-bottom: 10px;
   }
 
   .menu-item {
-    flex: 0 0 auto;
+    flex: 1 1 0;
+    min-width: 0;
     flex-direction: column;
-    padding: 8px 10px;
+    padding: 8px 4px;
     font-size: 11px;
     gap: 4px;
     border-radius: 12px;
   }
 
-  .menu-item span:last-child {
-    display: none;
-  }
-
+  .menu-item span:last-child,
   .menu-item.active span:last-child {
-    display: inline;
-    font-size: 10px;
+    display: block;
+    width: 100%;
+    max-width: none;
+    font-size: 9px;
+    text-align: center;
   }
 
   .menu-icon {
@@ -470,5 +485,101 @@
   /* Hide overflow on small screens */
   body {
     overflow-x: hidden;
+  }
+}
+
+/* Persistent responsive navigation: keep the admin sidebar visible. */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    min-height: 100vh;
+    padding-bottom: 82px;
+  }
+
+  .dashboard-main {
+    width: 100%;
+  }
+
+  .sidebar {
+    position: fixed !important;
+    top: auto !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 96px !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    border-radius: 18px 18px 0 0 !important;
+    transform: none !important;
+    overflow: hidden !important;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    transform: none !important;
+  }
+
+  .sidebar.active::after {
+    display: none !important;
+  }
+
+  .sidebar-logo,
+  .sidebar-footer {
+    display: none !important;
+  }
+
+  .sidebar-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100% !important;
+    height: 100%;
+    max-height: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 4px !important;
+    overflow: hidden !important;
+    border: 0 !important;
+  }
+
+  .sidebar .menu-item,
+  .sidebar .menu-item.active {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    min-height: 68px;
+    padding: 8px 3px !important;
+    gap: 4px !important;
+    border-radius: 12px;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    transform: none !important;
+  }
+
+  .sidebar .menu-icon {
+    min-width: 0;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .sidebar .menu-label,
+  .sidebar .menu-item.active .menu-label {
+    display: block !important;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .menu-toggle-btn {
+    display: none !important;
   }
 }

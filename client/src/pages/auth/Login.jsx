@@ -5,11 +5,13 @@ import AuthLayout from "../../layouts/AuthLayout";
 import Logo from "../../components/common/Logo/Logo";
 import Input from "../../components/common/Input/Input";
 import Button from "../../components/common/Button/Button";
+import RoleSelector from "../../components/common/RoleSelector/RoleSelector";
 
 import { loginUser } from "../../services/authService";
 import { AuthContext } from "../../context/AuthContext";
 
 import "../../styles/login.css";
+import { notify } from "../../utils/notifications";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -18,6 +20,7 @@ export default function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    role: "admin",
   });
 
   const [loading, setLoading] = useState(false);
@@ -33,7 +36,7 @@ export default function Login() {
     e.preventDefault();
 
     if (!formData.email || !formData.password) {
-      alert("Please fill in all fields.");
+      notify.warning("Please fill in all fields.");
       return;
     }
 
@@ -56,7 +59,7 @@ if (res.data.user.role === "admin") {
   navigate("/driver/dashboard");
 }
     } catch (error) {
-      alert(
+      notify.error(
         error.response?.data?.message || "Login failed. Please try again."
       );
     } finally {
@@ -86,11 +89,16 @@ if (res.data.user.role === "admin") {
       }
       right={
         <div className="login-form">
-          <h1>Welcome Back 👋</h1>
+          <h1>Welcome Back</h1>
 
           <p>Login to continue using PathGenie.</p>
 
           <form onSubmit={handleSubmit}>
+            <RoleSelector
+              value={formData.role}
+              onChange={handleChange}
+            />
+
             <Input
               label="Email"
               type="email"

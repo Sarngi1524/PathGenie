@@ -7,6 +7,8 @@ export const registerUser = async (req, res) => {
   try {
     const { name, email, password, phone, role } = req.body;
 
+    const accountRole = role === "driver" ? "driver" : "admin";
+
     // Check required fields
     if (!name || !email || !password) {
       return res.status(400).json({
@@ -34,7 +36,7 @@ export const registerUser = async (req, res) => {
       email,
       password: hashedPassword,
       phone,
-      role,
+      role: accountRole,
     });
 
     res.status(201).json({
@@ -59,7 +61,14 @@ export const registerUser = async (req, res) => {
 };
 export const loginUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, role } = req.body;
+
+    if (role && !["admin", "driver"].includes(role)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid account type.",
+      });
+    }
 
     // Check required fields
     if (!email || !password) {
@@ -76,6 +85,13 @@ export const loginUser = async (req, res) => {
       return res.status(401).json({
         success: false,
         message: "Invalid email or password",
+      });
+    }
+
+    if (role && user.role !== role) {
+      return res.status(403).json({
+        success: false,
+        message: `This account is registered as a ${user.role === "driver" ? "driver" : "user"}.`,
       });
     }
 
@@ -119,6 +135,57 @@ export const loginUser = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Server Error",
+    });
+  }
+};
+
+export const resetPassword = async (req, res) => {
+  try {
+    const { email, newPassword, confirmPassword } = req.body;
+
+    if (!email || !newPassword || !confirmPassword) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and both password fields are required.",
+      });
+    }
+
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({
+        success: false,
+        message: "Passwords do not match.",
+      });
+    }
+
+    if (newPassword.length < 6) {
+      return res.status(400).json({
+        success: false,
+        message: "Password must be at least 6 characters long.",
+      });
+    }
+
+    const user = await User.findOne({ email: email.toLowerCase().trim() });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "No account found with that email address.",
+      });
+    }
+
+    user.password = await bcrypt.hash(newPassword, 10);
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Password reset successfully. You can now log in.",
+    });
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to reset password.",
     });
   }
 };

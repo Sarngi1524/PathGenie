@@ -1,6 +1,6 @@
 import "./DriverDetailsModal.css";
+import { getAvatarSrc, defaultAvatar } from "../../utils/avatar";
 import {
-  FaUserCircle,
   FaEnvelope,
   FaPhone,
   FaUserTag,
@@ -35,17 +35,15 @@ const DriverDetailsModal = ({ open, driver, onClose }) => {
 
         <div className="driver-profile">
 
-          {driver.avatar ? (
-            <img
-              src={driver.avatar}
-              alt={driver.name}
-              className="driver-profile-avatar"
-            />
-          ) : (
-            <div className="driver-profile-avatar placeholder">
-              <FaUserCircle />
-            </div>
-          )}
+          <img
+            src={getAvatarSrc(driver.avatar)}
+            alt={driver.name}
+            className="driver-profile-avatar"
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = defaultAvatar;
+            }}
+          />
 
           <h3>{driver.name}</h3>
 

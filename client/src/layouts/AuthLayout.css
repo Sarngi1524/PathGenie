@@ -41,6 +41,7 @@
 
   top: -180px;
   left: -120px;
+  pointer-events: none;
 }
 
 .auth-page::after {
@@ -57,6 +58,7 @@
 
   right: -100px;
   bottom: -120px;
+  pointer-events: none;
 }
 
 /* ==========================
@@ -78,6 +80,8 @@
   overflow: hidden;
 
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
 }
 
 /* ==========================
@@ -167,6 +171,8 @@ text-align:center;
   max-width: 470px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 }
 
 /* ==========================

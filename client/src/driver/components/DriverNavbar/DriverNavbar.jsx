@@ -1,141 +1,108 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import {
-  FiBell,
-  FiSearch,
-  FiSun,
-  FiMoon,
-  FiSettings,
-  FiLogOut,
-} from "react-icons/fi";
-import { FaBars, FaTimes } from "react-icons/fa";
+  FaBell,
+  FaBars,
+  FaCog,
+  FaSearch,
+  FaSignOutAlt,
+  FaTimes,
+  FaUserCircle,
+} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../../context/AuthContext";
-import { applyTheme, getStoredTheme } from "../../../utils/themeUtils";
+import { getDriverNotifications } from "../../services/driverService";
+import "../../../components/Navbar/Navbar.css";
 
-import "./DriverNavbar.css";
-
-export default function DriverNavbar({ onMenuToggle, sidebarOpen = false }) {
+export default function DriverNavbar({ onMenuToggle = () => {}, sidebarOpen = false }) {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [darkMode, setDarkMode] = useState(getStoredTheme());
-
-  const today = new Date().toLocaleDateString("en-IN", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  const notificationRef = useRef(null);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
 
   const hour = new Date().getHours();
-
   const greeting =
-    hour < 12
-      ? "Good Morning"
-      : hour < 17
-      ? "Good Afternoon"
-      : "Good Evening";
+    hour < 12 ? "Good Morning" : hour < 18 ? "Good Afternoon" : "Good Evening";
+
+  const loadNotificationCount = async () => {
+    try {
+      const response = await getDriverNotifications();
+      setUnreadCount(Number(response.data?.unread) || 0);
+    } catch (error) {
+      setUnreadCount(0);
+    }
+  };
 
   useEffect(() => {
-    applyTheme(darkMode);
-  }, [darkMode]);
+    loadNotificationCount();
+    window.addEventListener("driver-notifications-updated", loadNotificationCount);
+    return () =>
+      window.removeEventListener("driver-notifications-updated", loadNotificationCount);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (notificationRef.current && !notificationRef.current.contains(event.target)) {
+        setShowNotifications(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleLogout = () => {
     logout();
     navigate("/login");
   };
 
-  const handleSettings = () => {
-    navigate("/driver/settings");
-  };
-
-  const handleProfile = () => {
-    navigate("/driver/profile");
-  };
-
   return (
-    <header className="driver-navbar">
+    <header className="navbar driver-navbar">
+      <div className="navbar-top">
+        <button className="menu-toggle-btn" onClick={onMenuToggle} aria-label="Toggle menu">
+          {sidebarOpen ? <FaTimes /> : <FaBars />}
+        </button>
 
-      <button
-        className="driver-menu-toggle"
-        onClick={onMenuToggle}
-      >
-        {sidebarOpen ? <FaTimes /> : <FaBars />}
-      </button>
-
-      <div className="driver-navbar-left">
-
-        <h2>
-          {greeting},{" "}
-          <span>{user?.name || "Driver"} 👋</span>
-        </h2>
-
-        <p>{today}</p>
-
-      </div>
-
-      <div className="driver-navbar-right">
-
-        <div className="driver-search">
-
-          <FiSearch />
-
-          <input
-            type="text"
-            placeholder="Search deliveries..."
-          />
-
+        <div className="navbar-greeting">
+          <h2>{greeting}, {user?.name || "Driver"}!</h2>
+          <p>Welcome back! Let&apos;s manage today&apos;s deliveries.</p>
         </div>
 
-        <button
-          className="theme-btn"
-          onClick={() => setDarkMode((prev) => !prev)}
-          aria-label="Toggle dark mode"
-        >
-          {darkMode ? <FiSun /> : <FiMoon />}
-        </button>
+        <div className="navbar-icons">
+          <div className="notification-wrapper" ref={notificationRef}>
+            <button
+              className="notification-btn"
+              onClick={() => navigate("/driver/notifications")}
+              aria-label="Open notifications"
+            >
+              <FaBell />
+              {unreadCount > 0 && (
+                <span className="notification-badge">
+                  {unreadCount > 99 ? "99+" : unreadCount}
+                </span>
+              )}
+            </button>
+          </div>
 
-        <button
-          className="notification-btn"
-          onClick={() => navigate("/driver/notifications")}
-          aria-label="Open notifications"
-        >
-          <FiBell />
-          <span>3</span>
-        </button>
+          <button onClick={() => navigate("/driver/settings")} aria-label="Open settings">
+            <FaCog />
+          </button>
 
-        <button
-          className="driver-icon-btn"
-          onClick={handleSettings}
-          aria-label="Open settings"
-        >
-          <FiSettings />
-        </button>
+          <button className="logout-nav-btn" onClick={handleLogout} aria-label="Logout">
+            <FaSignOutAlt />
+          </button>
 
-        <button
-          className="driver-icon-btn"
-          onClick={handleProfile}
-          aria-label="Open profile"
-        >
-          <img
-            src={
-              user?.avatar ||
-              "/images/default-avatar.png"
-            }
-            alt="Driver"
-          />
-        </button>
-
-        <button
-          className="driver-icon-btn logout-btn"
-          onClick={handleLogout}
-          aria-label="Logout"
-        >
-          <FiLogOut />
-        </button>
-
+          <button className="profile" onClick={() => navigate("/driver/profile")} aria-label="Open profile">
+            <FaUserCircle />
+          </button>
+        </div>
       </div>
 
+      <form className="search-bar" onSubmit={(event) => event.preventDefault()}>
+        <FaSearch />
+        <input type="text" placeholder="Search your deliveries..." />
+      </form>
     </header>
   );
 }

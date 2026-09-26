@@ -25,23 +25,6 @@ export default function ThemeSettings({
 
       <div className="theme-section">
 
-        {/* Theme */}
-
-        <div className="theme-option">
-          <label>Dashboard Theme</label>
-
-          <select
-            name="theme"
-            value={settings.theme}
-            onChange={handleChange}
-          >
-            <option value="light">Light</option>
-            <option value="dark" disabled>
-              Dark (Coming Soon)
-            </option>
-          </select>
-        </div>
-
         {/* Color */}
 
         <div className="theme-option">
@@ -92,8 +75,8 @@ export default function ThemeSettings({
             <h5>PathGenie Dashboard</h5>
 
             <p>
-              This is how your dashboard theme will
-              look.
+              This is how your selected colors will look
+              across the app.
             </p>
 
             <button

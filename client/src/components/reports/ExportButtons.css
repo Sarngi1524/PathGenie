@@ -2,6 +2,7 @@
 display:flex;
 gap:15px;
 justify-content:flex-end;
+flex:0 0 auto;
 }
 
 .export-buttons button{
@@ -14,6 +15,7 @@ border-radius:12px;
 cursor:pointer;
 font-size:15px;
 font-weight:600;
+white-space:nowrap;
 transition:.3s;
 }
 
@@ -39,11 +41,13 @@ background:#c49d91;
 
 .export-buttons{
 width:100%;
+display:grid;
+grid-template-columns:1fr 1fr;
 }
 
 .export-buttons button{
-flex:1;
 justify-content:center;
+padding:12px 14px;
 }
 
 }

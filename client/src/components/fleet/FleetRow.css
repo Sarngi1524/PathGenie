@@ -99,6 +99,8 @@
 .fleet-actions {
   display: flex;
   gap: 8px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .fleet-actions button {

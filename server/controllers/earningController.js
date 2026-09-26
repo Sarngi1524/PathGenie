@@ -42,6 +42,11 @@ export const getDriverEarnings = async (req, res) => {
       },
     ]);
 
+    const deliveredCount = await Delivery.countDocuments({
+      driver: driverId,
+      status: "Delivered",
+    });
+
     const distanceKm =
       deliveredDistance.length > 0
         ? deliveredDistance[0].totalDistance / 1000
@@ -67,7 +72,7 @@ export const getDriverEarnings = async (req, res) => {
     );
 
     const totalEarnings =
-      earnings.length > 0
+      earnings.length === deliveredCount && deliveredCount > 0
         ? Number(totalRecordEarnings.toFixed(2))
         : calculatedEarnings;
 
@@ -77,7 +82,7 @@ export const getDriverEarnings = async (req, res) => {
         totalEarnings,
         totalBonus: bonus,
         totalPenalty: penalty,
-        totalDeliveries: earnings.length || Math.max(deliveredDistance.length, 0),
+        totalDeliveries: deliveredCount,
         ratePerKm: payPerKm,
         totalDistanceKm: Number(distanceKm.toFixed(2)),
         calculatedEarnings,

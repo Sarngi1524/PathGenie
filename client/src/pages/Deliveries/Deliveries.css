@@ -1,14 +1,14 @@
 .deliveries-page{
     display:flex;
     flex-direction:column;
-    gap:28px;
-    padding:24px;
+    gap:24px;
+    padding:4px;
     background:
         radial-gradient(circle at top right, rgba(129, 130, 99, 0.12), transparent 32%),
         linear-gradient(180deg, #fffdf8 0%, #FFFAF2 100%);
     min-height:100vh;
     animation:fadeIn .4s ease;
-    max-width: 1500px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 

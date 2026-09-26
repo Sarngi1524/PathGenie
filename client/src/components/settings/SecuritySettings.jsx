@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 
 import { changePassword } from "../../services/settingsService";
+import { notify } from "../../utils/notifications";
 
 export default function SecuritySettings() {
   const [passwords, setPasswords] = useState({
@@ -32,14 +33,14 @@ export default function SecuritySettings() {
       !passwords.newPassword ||
       !passwords.confirmPassword
     ) {
-      return alert("Please fill all password fields.");
+      return notify.warning("Please fill all password fields.");
     }
 
     if (
       passwords.newPassword !==
       passwords.confirmPassword
     ) {
-      return alert("Passwords do not match.");
+      return notify.warning("Passwords do not match.");
     }
 
     try {
@@ -47,7 +48,7 @@ export default function SecuritySettings() {
 
       const res = await changePassword(passwords);
 
-      alert(res.message);
+      notify.success(res.message);
 
       setPasswords({
         currentPassword: "",
@@ -56,7 +57,7 @@ export default function SecuritySettings() {
       });
 
     } catch (error) {
-      alert(
+      notify.error(
         error.response?.data?.message ||
         "Unable to change password."
       );

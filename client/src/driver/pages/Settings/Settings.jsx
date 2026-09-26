@@ -4,18 +4,29 @@ import {
   getDriverProfile,
   updateDriverProfile,
 } from "../../services/driverService";
+import SecuritySettings from "../../../components/settings/SecuritySettings";
+import ThemeSettings from "../../../components/settings/ThemeSettings";
+import { getSettings, updateSettings } from "../../../services/settingsService";
+import {
+  applyPrimaryColor,
+  getStoredPrimaryColor,
+} from "../../../utils/themeUtils";
 
 import "./Settings.css";
+import { notify } from "../../../utils/notifications";
 
 export default function DriverSettings() {
   const [settings, setSettings] = useState({
     pushNotifications: true,
     smsUpdates: false,
     autoAcceptOrders: true,
-    darkMode: false,
   });
   const [payPerKm, setPayPerKm] = useState(0);
   const [saving, setSaving] = useState(false);
+  const [appearance, setAppearance] = useState({
+    primaryColor: getStoredPrimaryColor(),
+  });
+  const [savingAppearance, setSavingAppearance] = useState(false);
 
   useEffect(() => {
     loadDriverSettings();
@@ -25,8 +36,43 @@ export default function DriverSettings() {
     try {
       const res = await getDriverProfile();
       setPayPerKm(res.data.driver.payPerKm || 0);
+
+      const settingsRes = await getSettings();
+      const primaryColor =
+        settingsRes.data?.primaryColor || getStoredPrimaryColor();
+
+      setAppearance({ primaryColor });
+      applyPrimaryColor(primaryColor);
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const handleAppearanceChange = (event) => {
+    const { name, value } = event.target;
+
+    setAppearance((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+
+    if (name === "primaryColor") {
+      applyPrimaryColor(value);
+    }
+  };
+
+  const handleSaveAppearance = async () => {
+    try {
+      setSavingAppearance(true);
+      await updateSettings(appearance);
+      applyPrimaryColor(appearance.primaryColor);
+      notify.success("Appearance updated successfully.");
+    } catch (err) {
+      notify.error(
+        err.response?.data?.message || "Failed to update appearance."
+      );
+    } finally {
+      setSavingAppearance(false);
     }
   };
 
@@ -41,9 +87,9 @@ export default function DriverSettings() {
     try {
       setSaving(true);
       await updateDriverProfile({ payPerKm });
-      alert("Pay rate updated successfully.");
+      notify.success("Pay rate updated successfully.");
     } catch (err) {
-      alert(err.response?.data?.message || "Failed to update pay rate.");
+      notify.error(err.response?.data?.message || "Failed to update pay rate.");
     } finally {
       setSaving(false);
     }
@@ -52,15 +98,16 @@ export default function DriverSettings() {
   return (
     <DriverLayout>
       <div className="driver-settings-page">
-        <div className="driver-settings-card">
-          <div className="driver-settings-header">
-            <div>
-              <h2>Driver Settings</h2>
-              <p>Manage your driver preferences and payout setup.</p>
+        <div className="driver-settings-content">
+          <div className="driver-settings-card">
+            <div className="driver-settings-header">
+              <div>
+                <h2>Driver Settings</h2>
+                <p>Manage your driver preferences and payout setup.</p>
+              </div>
             </div>
-          </div>
 
-          <div className="settings-list">
+            <div className="settings-list">
             <div className="setting-row">
               <div>
                 <h3>Push Notifications</h3>
@@ -103,20 +150,6 @@ export default function DriverSettings() {
               </button>
             </div>
 
-            <div className="setting-row">
-              <div>
-                <h3>Dark Mode</h3>
-                <p>Use a darker app theme for low-light viewing.</p>
-              </div>
-              <button
-                type="button"
-                className={`toggle-btn ${settings.darkMode ? "on" : ""}`}
-                onClick={() => handleToggle("darkMode")}
-              >
-                <span />
-              </button>
-            </div>
-
             <div className="setting-row payout-row">
               <div>
                 <h3>Pay per KM</h3>
@@ -142,7 +175,24 @@ export default function DriverSettings() {
                 </button>
               </div>
             </div>
+            </div>
           </div>
+
+          <SecuritySettings />
+
+          <ThemeSettings
+            settings={appearance}
+            handleChange={handleAppearanceChange}
+          />
+
+          <button
+            type="button"
+            className="save-appearance-btn"
+            onClick={handleSaveAppearance}
+            disabled={savingAppearance}
+          >
+            {savingAppearance ? "Saving Appearance..." : "Save Appearance"}
+          </button>
         </div>
       </div>
     </DriverLayout>

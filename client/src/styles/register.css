@@ -120,7 +120,7 @@
    Button
 =========================== */
 
-.register-form button{
+.register-form form > button{
 
     margin-top:10px;
 

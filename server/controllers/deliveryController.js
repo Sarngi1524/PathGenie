@@ -1,4 +1,5 @@
 import Delivery from "../models/Delivery.js";
+import Earning from "../models/Earning.js";
 import User from "../models/User.js";
 import Route from "../models/Route.js";
 
@@ -491,9 +492,40 @@ export const updateDeliveryStatus = async (req, res) => {
       });
     }
 
+    const wasDelivered = delivery.status === "Delivered";
+    const isBeingDelivered = status === "Delivered" && !wasDelivered;
+
     delivery.status = status;
 
+    if (isBeingDelivered) {
+      delivery.deliveredAt = new Date();
+    }
+
     await delivery.save();
+
+    if (isBeingDelivered && delivery.driver) {
+      const existingEarning = await Earning.findOne({
+        delivery: delivery._id,
+      });
+
+      if (!existingEarning) {
+        const driver = await User.findById(delivery.driver).select("payPerKm");
+        const payPerKm = Number(driver?.payPerKm || 0);
+        const distanceKm = Number(delivery.distance || 0) / 1000;
+        const amount = Number((distanceKm * payPerKm).toFixed(2));
+
+        await Earning.create({
+          driver: delivery.driver,
+          delivery: delivery._id,
+          amount,
+          bonus: 0,
+          penalty: 0,
+          total: amount,
+          paymentStatus: "Pending",
+          date: new Date(),
+        });
+      }
+    }
 
     const updatedDelivery = await Delivery.findById(id)
       .populate("driver", "name phone email")

@@ -5,10 +5,12 @@ import AuthLayout from "../../layouts/AuthLayout";
 import Logo from "../../components/common/Logo/Logo";
 import Input from "../../components/common/Input/Input";
 import Button from "../../components/common/Button/Button";
+import RoleSelector from "../../components/common/RoleSelector/RoleSelector";
 
 import { registerUser } from "../../services/authService";
 
 import "../../styles/register.css";
+import { notify } from "../../utils/notifications";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -19,6 +21,7 @@ export default function Register() {
     phone: "",
     password: "",
     confirmPassword: "",
+    role: "admin",
   });
 
   const [loading, setLoading] = useState(false);
@@ -40,12 +43,12 @@ export default function Register() {
       !formData.password ||
       !formData.confirmPassword
     ) {
-      alert("Please fill all fields.");
+      notify.warning("Please fill all fields.");
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match.");
+      notify.warning("Passwords do not match.");
       return;
     }
 
@@ -57,13 +60,14 @@ export default function Register() {
         email: formData.email,
         phone: formData.phone,
         password: formData.password,
+        role: formData.role,
       });
 
-      alert("Registration Successful!");
+      notify.success("Registration successful!");
 
       navigate("/login");
     } catch (error) {
-      alert(
+      notify.error(
         error.response?.data?.message ||
           "Registration failed. Please try again."
       );
@@ -94,10 +98,15 @@ export default function Register() {
       }
       right={
         <div className="register-form">
-          <h1>Create Account 🚀</h1>
+          <h1>Create Account</h1>
 
           <p>Create your PathGenie account.</p>
 <form onSubmit={handleSubmit}>
+
+  <RoleSelector
+    value={formData.role}
+    onChange={handleChange}
+  />
 
   <div className="register-grid">
 

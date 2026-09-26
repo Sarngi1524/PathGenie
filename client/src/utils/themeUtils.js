@@ -1,19 +1,20 @@
-export const applyTheme = (enabled) => {
-  if (typeof window === "undefined") return;
+const DEFAULT_PRIMARY_COLOR = "#818263";
 
-  document.body.classList.toggle("dark-theme", enabled);
-  localStorage.setItem("driver-theme", enabled ? "dark" : "light");
+export const applyPrimaryColor = (color = DEFAULT_PRIMARY_COLOR) => {
+  if (typeof document === "undefined") return;
+
+  const primaryColor = color || DEFAULT_PRIMARY_COLOR;
+  const root = document.documentElement;
+
+  root.style.setProperty("--primary", primaryColor);
+  root.style.setProperty("--secondary", primaryColor);
+  root.style.setProperty("--primary-soft", "color-mix(in srgb, " + primaryColor + " 18%, white)");
+  root.style.setProperty("--primary-dark", "color-mix(in srgb, " + primaryColor + " 78%, black)");
+  localStorage.setItem("primary-color", primaryColor);
 };
 
-export const getStoredTheme = () => {
-  if (typeof window === "undefined") return true;
+export const getStoredPrimaryColor = () => {
+  if (typeof window === "undefined") return DEFAULT_PRIMARY_COLOR;
 
-  const savedTheme = localStorage.getItem("driver-theme");
-
-  if (!savedTheme) {
-    applyTheme(true);
-    return true;
-  }
-
-  return savedTheme === "dark";
+  return localStorage.getItem("primary-color") || DEFAULT_PRIMARY_COLOR;
 };

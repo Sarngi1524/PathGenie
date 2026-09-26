@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaBell, FaCheck, FaInbox } from "react-icons/fa";
 import DriverLayout from "../../layouts/DriverLayout";
 import {
   getDriverNotifications,
@@ -20,13 +21,12 @@ export default function Notifications() {
   const loadNotifications = async () => {
     try {
       setLoading(true);
-
-      const res = await getDriverNotifications();
-
-      setNotifications(res.data.notifications);
-      setUnread(res.data.unread);
-    } catch (err) {
-      console.error(err);
+      const response = await getDriverNotifications();
+      setNotifications(response.data?.notifications || []);
+      setUnread(Number(response.data?.unread) || 0);
+      window.dispatchEvent(new Event("driver-notifications-updated"));
+    } catch (error) {
+      console.error(error);
     } finally {
       setLoading(false);
     }
@@ -36,8 +36,8 @@ export default function Notifications() {
     try {
       await markNotificationRead(id);
       loadNotifications();
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -45,8 +45,8 @@ export default function Notifications() {
     try {
       await markAllNotificationsRead();
       loadNotifications();
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -60,79 +60,76 @@ export default function Notifications() {
 
   return (
     <DriverLayout>
-
       <div className="notifications-page">
-
-        <div className="notification-header">
-
-          <div>
-            <h2>Notifications</h2>
-            <p>{unread} unread notification(s)</p>
+        <div className="driver-notification-header">
+          <div className="driver-notification-title">
+            <div className="driver-notification-icon">
+              <FaBell />
+            </div>
+            <div>
+              <span className="driver-notification-kicker">Updates & alerts</span>
+              <h2>Notifications</h2>
+              <p>
+                {unread > 0
+                  ? `${unread} unread notification${unread === 1 ? "" : "s"}`
+                  : "You are all caught up"}
+              </p>
+            </div>
           </div>
 
-          <button
-            className="mark-all-btn"
-            onClick={handleReadAll}
-          >
-            Mark All Read
-          </button>
-
+          {unread > 0 && (
+            <button className="driver-mark-all-btn" onClick={handleReadAll}>
+              <FaCheck />
+              Mark all as read
+            </button>
+          )}
         </div>
 
         {notifications.length === 0 ? (
-
-          <div className="empty-state">
-            No notifications available.
+          <div className="driver-empty-state">
+            <div className="driver-empty-icon">
+              <FaInbox />
+            </div>
+            <h3>No notifications yet</h3>
+            <p>New delivery and account updates will appear here.</p>
           </div>
-
         ) : (
-
           notifications.map((item) => (
-
             <div
               key={item._id}
-              className={`notification-card ${
+              className={`driver-notification-card ${
                 item.isRead ? "read" : "unread"
               }`}
             >
+              <div className="driver-notification-card-icon">
+                <FaBell />
+              </div>
 
-              <div className="notification-content">
-
+              <div className="driver-notification-content">
                 <h3>{item.title}</h3>
-
                 <p>{item.message}</p>
 
                 {item.relatedDelivery && (
-                  <span className="delivery-tag">
-                    Order : {item.relatedDelivery.orderId}
+                  <span className="driver-delivery-tag">
+                    Order: {item.relatedDelivery.orderId}
                   </span>
                 )}
 
-                <small>
-                  {new Date(item.createdAt).toLocaleString()}
-                </small>
-
+                <small>{new Date(item.createdAt).toLocaleString()}</small>
               </div>
 
               {!item.isRead && (
                 <button
-                  className="read-btn"
-                  onClick={() =>
-                    handleRead(item._id)
-                  }
+                  className="driver-read-btn"
+                  onClick={() => handleRead(item._id)}
                 >
-                  Mark Read
+                  Mark read
                 </button>
               )}
-
             </div>
-
           ))
-
         )}
-
       </div>
-
     </DriverLayout>
   );
 }

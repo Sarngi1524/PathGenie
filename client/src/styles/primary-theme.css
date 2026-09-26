@@ -1,0 +1,161 @@
+/* Global primary-color overrides driven by Settings > Appearance. */
+
+:root {
+  --primary-soft: #e7e7d9;
+  --primary-dark: #62634b;
+}
+
+body {
+  accent-color: var(--primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+.navbar-greeting h2,
+.driver-navbar-left span,
+.driver-navbar-left h2,
+.menu-icon,
+.driver-link svg,
+.driver-logo h2,
+.stat-icon,
+.search-icon,
+.report-icon,
+.fleet-stat-icon,
+.vehicle-icon,
+.driver-action-btn,
+.fleet-actions button,
+.pagination .page-number.active,
+.page-number.active {
+  color: var(--primary) !important;
+}
+
+.btn-primary,
+.new-delivery-btn,
+.add-vehicle-btn,
+.reset-btn,
+.password-btn,
+.save-pay-btn,
+.save-bar button,
+.menu-item.active,
+.driver-link.active,
+.pagination .page-btn,
+.page-number.active,
+.fleet-pagination .page-btn,
+.fleet-pagination .page-number.active,
+.report-header .report-icon,
+.report-stat-icon.total,
+.fleet-stat-icon.total,
+.sidebar {
+  background-color: var(--primary);
+}
+
+.sidebar {
+  background: var(--primary) !important;
+  box-shadow: none !important;
+}
+
+.btn-primary:hover,
+.add-vehicle-btn:hover,
+.reset-btn:hover,
+.password-btn:hover,
+.save-pay-btn:hover,
+.menu-item.active:hover,
+.driver-link.active:hover,
+.page-btn:hover:not(:disabled),
+.page-number.active:hover {
+  background-color: var(--primary-dark) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.search-box:focus-within,
+.filter-search input:focus,
+.fleet-filters select:focus,
+.reports-filter .filter-group input:focus,
+.reports-filter .filter-group select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 15%, transparent);
+}
+
+.delivery-header .new-delivery-btn,
+.fleet-header .add-vehicle-btn {
+  color: var(--primary) !important;
+}
+
+.delivery-header .new-delivery-btn {
+  background: #ffffff !important;
+}
+
+.fleet-header .add-vehicle-btn {
+  color: #ffffff !important;
+}
+
+.color-circle.active {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.theme-preview h4 {
+  color: var(--primary);
+}
+
+.theme-preview button {
+  background: var(--primary) !important;
+}
+
+/* Keep the selected color effective when component styles are loaded later. */
+h1,
+h2,
+h3,
+h4,
+.navbar-greeting h2,
+.driver-navbar-left span,
+.driver-logo h2,
+.fleet-header-left h1,
+.report-header h1,
+.menu-icon,
+.search-icon,
+.report-icon,
+.vehicle-icon,
+.driver-action-btn,
+.fleet-actions button {
+  color: var(--primary) !important;
+}
+
+/* Sidebar contrast on the solid primary background. */
+.sidebar .logo-title,
+.sidebar .logo-subtitle,
+.sidebar .menu-item,
+.sidebar .menu-icon,
+.sidebar .user-card h4,
+.sidebar .user-card p {
+  color: #ffffff !important;
+}
+
+.sidebar .menu-item.active {
+  background: #ffffff !important;
+  color: var(--primary) !important;
+}
+
+.sidebar .menu-item.active .menu-icon {
+  color: var(--primary) !important;
+}
+
+.btn-primary,
+.add-vehicle-btn,
+.reset-btn,
+.password-btn,
+.save-pay-btn,
+.menu-item.active,
+.driver-link.active,
+.page-btn,
+.page-number.active,
+.clear-filter-btn,
+.report-stat-icon.total,
+.fleet-stat-icon.total {
+  background-color: var(--primary) !important;
+}

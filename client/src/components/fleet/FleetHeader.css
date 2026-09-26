@@ -8,9 +8,11 @@
   align-items: center;
   gap: 20px;
   background: #ffffff;
-  padding: 24px;
-  border-radius: 20px;
+  padding: 30px;
+  border-radius: 24px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(129, 130, 99, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #fffdf9 100%);
 }
 
 /* ===========================
@@ -19,7 +21,7 @@
 
 .fleet-header-left h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.35rem;
   color: #818263;
   font-weight: 700;
 }
@@ -27,7 +29,7 @@
 .fleet-header-left p {
   margin-top: 8px;
   color: #666;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
   max-width: 600px;
 }
@@ -40,21 +42,30 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 190px;
+  white-space: nowrap;
 
   border: none;
-  border-radius: 12px;
+  border-radius: 16px;
 
   background: #818263;
   color: white;
 
-  padding: 14px 22px;
+  padding: 15px 24px;
 
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(129, 130, 99, 0.2);
 
   cursor: pointer;
 
   transition: all 0.3s ease;
+}
+
+.add-vehicle-btn span {
+  white-space: nowrap;
 }
 
 .add-vehicle-btn:hover {
@@ -83,6 +94,7 @@
 
   .add-vehicle-btn {
     width: 100%;
+    min-width: 0;
     justify-content: center;
   }
 }

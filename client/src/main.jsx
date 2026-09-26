@@ -7,8 +7,13 @@ import { SocketProvider } from "./context/SocketContext";
 
 import AuthProvider from "./context/AuthContext";
 import "./styles/global.css";
+import "./styles/primary-theme.css";
+import { applyPrimaryColor, getStoredPrimaryColor } from "./utils/themeUtils";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./styles/notifications.css";
+
+applyPrimaryColor(getStoredPrimaryColor());
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 

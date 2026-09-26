@@ -2,8 +2,8 @@
   position: absolute;
   top: 65px;
   right: 0;
-  width: 380px;
-  max-height: 550px;
+  width: min(400px, calc(100vw - 32px));
+  max-height: min(560px, calc(100vh - 96px));
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
@@ -38,7 +38,8 @@
 .notification-header h3 {
   margin: 0;
   font-size: 18px;
-  color: #333;
+  color: var(--primary, #818263);
+  white-space: nowrap;
 }
 
 .notification-header button {
@@ -48,6 +49,12 @@
   font-size: 18px;
   color: #777;
   transition: .3s;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .notification-header button:hover {
@@ -61,6 +68,7 @@
   justify-content: space-between;
   padding: 12px 18px;
   border-bottom: 1px solid #ececec;
+  gap: 12px;
 }
 
 .notification-actions button {
@@ -72,6 +80,9 @@
   cursor: pointer;
   font-size: 13px;
   transition: .25s;
+  min-width: 108px;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .notification-actions button:hover {
@@ -104,11 +115,26 @@
 @media (max-width:768px) {
 
   .notification-dropdown {
+    position: fixed;
+    top: 76px;
+    right: 12px;
+    width: min(400px, calc(100vw - 24px));
+    max-height: calc(100vh - 92px);
+    border-radius: 18px;
+  }
 
-    width: 95vw;
+  .notification-header {
+    padding: 16px;
+  }
 
-    right: -15px;
+  .notification-actions {
+    justify-content: space-between;
+    padding: 12px 14px;
+  }
 
-    top: 60px;
+  .notification-actions button {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 9px 10px;
   }
 }

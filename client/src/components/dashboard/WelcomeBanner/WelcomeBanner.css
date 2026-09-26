@@ -45,6 +45,7 @@
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: #ffffff !important;
 }
 
 .welcome-text h1 {
@@ -52,6 +53,7 @@
   font-weight: 700;
   margin: 0 0 16px 0;
   line-height: 1.2;
+  color: #ffffff !important;
 }
 
 .welcome-text p {
@@ -59,6 +61,7 @@
   line-height: 1.8;
   margin: 0 0 24px 0;
   opacity: 0.95;
+  color: #ffffff !important;
 }
 
 .welcome-text button {

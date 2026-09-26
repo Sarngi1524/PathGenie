@@ -7,6 +7,7 @@ import ProtectedRoute from "./ProtectedRoute";
 // ======================
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
+import ForgotPassword from "../pages/auth/ForgotPassword";
 
 // ======================
 // Admin Pages
@@ -43,6 +44,7 @@ export default function AppRoutes() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
         {/* ======================
             ADMIN ROUTES

@@ -22,7 +22,7 @@ export default function AuthLayout({ left, right }) {
           <div className="auth-form-card">
 
             <div className="auth-badge">
-              🚚 Smart Logistics Platform
+              Smart Logistics Platform
             </div>
 
             {right}

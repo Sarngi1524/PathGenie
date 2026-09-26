@@ -15,6 +15,11 @@ import SecuritySettings from "../../components/settings/SecuritySettings";
 import NotificationSettings from "../../components/settings/NotificationSettings";
 import ThemeSettings from "../../components/settings/ThemeSettings";
 import SaveBar from "../../components/settings/SaveBar";
+import { notify } from "../../utils/notifications";
+import {
+  applyPrimaryColor,
+  getStoredPrimaryColor,
+} from "../../utils/themeUtils";
 
 export default function Settings() {
   const location = useLocation();
@@ -35,8 +40,7 @@ export default function Settings() {
     driverAlerts: true,
     fleetAlerts: true,
 
-    theme: "light",
-    primaryColor: "#818263",
+    primaryColor: getStoredPrimaryColor(),
   });
 
   const [loading, setLoading] = useState(true);
@@ -65,7 +69,14 @@ export default function Settings() {
 
       const res = await getSettings();
 
-      setSettings(res.data);
+      const loadedSettings = {
+        ...settings,
+        ...res.data,
+        primaryColor: res.data.primaryColor || getStoredPrimaryColor(),
+      };
+
+      setSettings(loadedSettings);
+      applyPrimaryColor(loadedSettings.primaryColor);
     } catch (error) {
       console.error(error);
     } finally {
@@ -80,6 +91,10 @@ export default function Settings() {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
+
+    if (name === "primaryColor") {
+      applyPrimaryColor(value);
+    }
   };
 
   const handleSave = async () => {
@@ -87,11 +102,12 @@ export default function Settings() {
       setSaving(true);
 
       await updateSettings(settings);
+      applyPrimaryColor(settings.primaryColor);
 
-      alert("Settings updated successfully!");
+      notify.success("Settings updated successfully!");
     } catch (error) {
       console.error(error);
-      alert("Failed to update settings.");
+      notify.error("Failed to update settings.");
     } finally {
       setSaving(false);
     }

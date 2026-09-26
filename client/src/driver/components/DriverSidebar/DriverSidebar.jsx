@@ -1,4 +1,5 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useContext } from "react";
 import {
   FiHome,
   FiTruck,
@@ -7,125 +8,59 @@ import {
   FiBell,
   FiUser,
   FiSettings,
-  FiLogOut,
 } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa";
 
-import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
-
-import "./DriverSidebar.css";
+import Logo from "../../../components/common/Logo/Logo";
+import "../../../components/Sidebar/Sidebar.css";
 
 export default function DriverSidebar({ isOpen = false }) {
-  const { logout, user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
+  const menuItems = [
+    { title: "Dashboard", icon: <FiHome />, path: "/driver/dashboard" },
+    { title: "Deliveries", icon: <FiTruck />, path: "/driver/deliveries" },
+    { title: "Earnings", icon: <FiDollarSign />, path: "/driver/earnings" },
+    { title: "Attendance", icon: <FiClock />, path: "/driver/attendance" },
+    { title: "Notifications", icon: <FiBell />, path: "/driver/notifications" },
+    { title: "Profile", icon: <FiUser />, path: "/driver/profile" },
+    { title: "Settings", icon: <FiSettings />, path: "/driver/settings" },
+  ];
 
   return (
-    <aside className={`driver-sidebar ${isOpen ? "active" : ""}`}>
-      <div className="driver-sidebar-top">
-        <div className="driver-logo">
-          <img
-            src="/images/logo.png"
-            alt="PathGenie"
-          />
-
-          <h2>PathGenie</h2>
-        </div>
-
-        <div className="driver-profile">
-          <img
-            src={
-              user?.avatar ||
-              "/images/default-avatar.png"
-            }
-            alt="Driver"
-          />
-
-          <div>
-            <h4>{user?.name}</h4>
-            <span>Driver</span>
-          </div>
-        </div>
-
-        <nav>
-
-          <NavLink
-            to="/driver/dashboard"
-            className={({ isActive }) => isActive ? "driver-link active" : "driver-link"}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <FiHome />
-            Dashboard
-          </NavLink>
-
-          <NavLink
-            to="/driver/deliveries"
-            className={({ isActive }) => isActive ? "driver-link active" : "driver-link"}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <FiTruck />
-            My Deliveries
-          </NavLink>
-
-          <NavLink
-            to="/driver/earnings"
-            className={({ isActive }) => isActive ? "driver-link active" : "driver-link"}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <FiDollarSign />
-            Earnings
-          </NavLink>
-
-          <NavLink
-            to="/driver/attendance"
-            className={({ isActive }) => isActive ? "driver-link active" : "driver-link"}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <FiClock />
-            Attendance
-          </NavLink>
-
-          <NavLink
-            to="/driver/notifications"
-            className={({ isActive }) => isActive ? "driver-link active" : "driver-link"}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <FiBell />
-            Notifications
-          </NavLink>
-
-          <NavLink
-            to="/driver/profile"
-            className={({ isActive }) => isActive ? "driver-link active" : "driver-link"}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <FiUser />
-            Profile
-          </NavLink>
-
-          <NavLink
-            to="/driver/settings"
-            className={({ isActive }) => isActive ? "driver-link active" : "driver-link"}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <FiSettings />
-            Settings
-          </NavLink>
-
-        </nav>
+    <aside className={`sidebar driver-sidebar ${isOpen ? "active" : ""}`}>
+      <div className="sidebar-logo">
+        <Logo />
       </div>
 
-      <button
-        className="driver-logout-btn"
-        onClick={handleLogout}
-      >
-        <FiLogOut />
-        Logout
-      </button>
+      <nav className="sidebar-menu">
+        {menuItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={({ isActive }) =>
+              isActive ? "menu-item active" : "menu-item"
+            }
+            onClick={(event) => event.stopPropagation()}
+          >
+            <span className="menu-icon">{item.icon}</span>
+            <span className="menu-label">{item.title}</span>
+          </NavLink>
+        ))}
+      </nav>
+
+      <div className="sidebar-footer">
+        <div className="user-card">
+          <div className="avatar avatar-illustration" aria-hidden="true">
+            <FaUserCircle />
+          </div>
+          <div className="user-info">
+            <h4>{user?.name || "Driver"}</h4>
+            <p>Driver</p>
+          </div>
+        </div>
+      </div>
     </aside>
   );
 }

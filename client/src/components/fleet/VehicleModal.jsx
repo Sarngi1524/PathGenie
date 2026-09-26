@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./VehicleModal.css";
+import { notify } from "../../utils/notifications";
 
 const initialState = {
   vehicleNumber: "",
@@ -46,7 +47,7 @@ const VehicleModal = ({
       !formData.vehicleNumber ||
       !formData.capacity
     ) {
-      alert("Please fill all required fields.");
+      notify.warning("Please fill all required fields.");
       return;
     }
 

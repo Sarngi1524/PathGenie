@@ -336,3 +336,108 @@
   align-items: center;
   border: 2px solid #FFFAF2;
 }
+
+/* Final responsive layout override: keep the admin navbar compact. */
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .navbar-top {
+    width: 100%;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .menu-toggle-btn {
+    display: flex !important;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  .navbar-greeting {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .navbar-greeting h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 19px;
+  }
+
+  .navbar-greeting p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .navbar-icons {
+    width: auto !important;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 7px;
+  }
+
+  .navbar-icons button,
+  .profile,
+  .notification-btn {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: none !important;
+    height: 44px;
+    flex: none;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .navbar-greeting h2 {
+    font-size: 16px;
+  }
+
+  .navbar-greeting p {
+    font-size: 11px;
+  }
+
+  .search-bar {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .navbar-icons {
+    gap: 5px;
+  }
+
+  .navbar-icons button,
+  .profile,
+  .notification-btn {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+    font-size: 14px;
+  }
+
+  .menu-toggle-btn {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+}

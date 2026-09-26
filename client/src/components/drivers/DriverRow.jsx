@@ -1,5 +1,6 @@
 import "./DriverRow.css";
-import { FaEye, FaUserCircle } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
+import { getAvatarSrc, defaultAvatar } from "../../utils/avatar";
 
 const DriverRow = ({ driver, onView }) => {
   return (
@@ -10,17 +11,15 @@ const DriverRow = ({ driver, onView }) => {
       <td>
         <div className="driver-info">
 
-          {driver.avatar ? (
-            <img
-              src={driver.avatar}
-              alt={driver.name}
-              className="driver-avatar"
-            />
-          ) : (
-            <div className="driver-avatar placeholder">
-              <FaUserCircle />
-            </div>
-          )}
+          <img
+            src={getAvatarSrc(driver.avatar)}
+            alt={driver.name}
+            className="driver-avatar"
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = defaultAvatar;
+            }}
+          />
 
           <div>
             <h4>{driver.name}</h4>
