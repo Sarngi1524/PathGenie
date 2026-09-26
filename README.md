@@ -39,15 +39,15 @@ Create `server/.env`:
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/pathgenie
+MONGO_URI=mongodb url
 JWT_SECRET=your_secret_key
-CLIENT_URL=http://localhost:5173
+CLIENT_URL=frontend url
 ```
 
 Optional client configuration in `client/.env`:
 
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=backend url
 ```
 
 ## Run Locally
