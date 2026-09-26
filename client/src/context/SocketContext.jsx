@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
 import { io } from "socket.io-client";
 
 const SocketContext = createContext(null);
@@ -8,7 +7,7 @@ export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("https://pathgenie-ijbu.onrender.com", {
+    const newSocket = io(import.meta.env.VITE_SOCKET_URL, {
       transports: ["websocket"],
     });
 
